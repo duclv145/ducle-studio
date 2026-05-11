@@ -3,7 +3,20 @@
 import { motion } from "framer-motion";
 import SectionLabel from "./SectionLabel";
 
-const cvData = [
+interface EducationItem {
+  organization: string;
+  details: string[];
+}
+
+interface WorkItem {
+  period: string;
+  company: string;
+}
+
+const cvData: Array<{
+  category: string;
+  items: Array<EducationItem | WorkItem>;
+}> = [
   {
     category: "Education",
     items: [
@@ -98,13 +111,13 @@ export default function Services() {
                   >
                     <span className="pointer-events-none absolute inset-0 bg-yellow origin-bottom scale-y-0 transition-transform duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-y-100 group-hover:origin-top -z-0" />
                     <div className="relative z-10">
-                      {item.organization && (
+                      {'organization' in item && (
                         <div>
                           <h4 className="font-display font-medium text-[16px] md:text-[18px] leading-[1.3] mb-2">
-                            {item.organization}
+                            {(item as EducationItem).organization}
                           </h4>
                           <div className="space-y-1">
-                            {item.details?.map((detail, detailIndex) => (
+                            {(item as EducationItem).details?.map((detail, detailIndex) => (
                               <p
                                 key={detailIndex}
                                 className="text-[14px] md:text-[15px] text-ink-2 leading-[1.5]"
@@ -115,18 +128,13 @@ export default function Services() {
                           </div>
                         </div>
                       )}
-                      {item.title && (
-                        <p className="text-[14px] md:text-[15px] text-ink-2 leading-[1.55]">
-                          {item.title}
-                        </p>
-                      )}
-                      {item.company && (
+                      {'company' in item && (
                         <div>
                           <p className="text-[11px] md:text-[12px] font-mono uppercase tracking-[0.14em] text-muted mb-1">
-                            {item.period}
+                            {(item as WorkItem).period}
                           </p>
                           <h4 className="font-display font-medium text-[16px] md:text-[18px] leading-[1.3]">
-                            {item.company}
+                            {(item as WorkItem).company}
                           </h4>
                         </div>
                       )}
@@ -171,13 +179,13 @@ export default function Services() {
                   >
                     <span className="pointer-events-none absolute inset-0 bg-yellow origin-bottom scale-y-0 transition-transform duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-y-100 group-hover:origin-top -z-0" />
                     <div className="relative z-10">
-                      {item.organization && (
+                      {'organization' in item && (
                         <div>
                           <h4 className="font-display font-medium text-[16px] md:text-[18px] leading-[1.3] mb-2">
-                            {item.organization}
+                            {(item as EducationItem).organization}
                           </h4>
                           <div className="space-y-1">
-                            {item.details?.map((detail, detailIndex) => (
+                            {(item as EducationItem).details?.map((detail, detailIndex) => (
                               <p
                                 key={detailIndex}
                                 className="text-[14px] md:text-[15px] text-ink-2 leading-[1.5]"
@@ -188,18 +196,13 @@ export default function Services() {
                           </div>
                         </div>
                       )}
-                      {item.title && (
-                        <p className="text-[14px] md:text-[15px] text-ink-2 leading-[1.55]">
-                          {item.title}
-                        </p>
-                      )}
-                      {item.company && (
+                      {'company' in item && (
                         <div>
                           <p className="text-[11px] md:text-[12px] font-mono uppercase tracking-[0.14em] text-muted mb-1">
-                            {item.period}
+                            {(item as WorkItem).period}
                           </p>
                           <h4 className="font-display font-medium text-[16px] md:text-[18px] leading-[1.3]">
-                            {item.company}
+                            {(item as WorkItem).company}
                           </h4>
                         </div>
                       )}
