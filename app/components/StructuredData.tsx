@@ -5,7 +5,7 @@ export default function StructuredData() {
       {
         "@type": "Organization",
         "@id": "https://ducle.studio/#org",
-        name: "DucLe Studio",
+        name: "DucLe Portfolio",
         url: "https://ducle.studio",
         logo: "https://ducle.studio/icon",
         sameAs: [
@@ -27,7 +27,7 @@ export default function StructuredData() {
         "@type": "WebSite",
         "@id": "https://ducle.studio/#website",
         url: "https://ducle.studio",
-        name: "DucLe Studio",
+        name: "DucLe Portfolio",
         publisher: { "@id": "https://ducle.studio/#org" },
         inLanguage: "en-US",
       },

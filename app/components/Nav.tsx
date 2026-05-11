@@ -5,10 +5,9 @@ import { useState } from "react";
 import Logo from "./Logo";
 
 const links = [
-  { label: "Services", href: "#services" },
-  { label: "Process", href: "#process" },
-  { label: "Work", href: "#work" },
   { label: "About", href: "#about" },
+  { label: "Background", href: "#services" },
+  { label: "Work", href: "#work" },
   { label: "Contact", href: "#contact" },
 ];
 

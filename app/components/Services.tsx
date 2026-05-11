@@ -3,36 +3,55 @@
 import { motion } from "framer-motion";
 import SectionLabel from "./SectionLabel";
 
-const services = [
+const cvData = [
   {
-    n: "01",
-    title: "Brand identity",
-    body: "Logos, type systems and visual languages built to outlast trends.",
-    tags: ["Logo", "Guidelines", "Type"],
+    category: "Education",
+    items: [
+      {
+        organization: "FPT Polytechnic",
+        details: [
+          "09/2013 - 01/2016: Graphic Design",
+          "09/2011 - 09/2013: Website Design",
+        ],
+      },
+      {
+        organization: "FPT Arena",
+        details: ["10/2013: Design Thinking Workshop"],
+      },
+      {
+        organization: "Brian Tracy International",
+        details: ["06/2016: Total Business Mastery Mini MBA"],
+      },
+    ],
   },
   {
-    n: "02",
-    title: "Web design",
-    body: "Story-driven marketing sites that turn attention into intent.",
-    tags: ["UX", "UI", "Art direction"],
-  },
-  {
-    n: "03",
-    title: "Development",
-    body: "Hand-built Next.js sites with smooth motion and obsessive detail.",
-    tags: ["Next.js", "WebGL", "CMS"],
-  },
-  {
-    n: "04",
-    title: "Motion",
-    body: "Interaction, scroll choreography and brand films that breathe.",
-    tags: ["After Effects", "Lottie", "GSAP"],
-  },
-  {
-    n: "05",
-    title: "Strategy",
-    body: "Positioning, messaging and naming for founders who play long.",
-    tags: ["Research", "Naming", "Messaging"],
+    category: "Work Experience",
+    items: [
+      {
+        period: "08/2022 - 10/2023",
+        company: "Hung Thai Technology Co., Ltd.",
+      },
+      {
+        period: "05/2022 - 01/2022",
+        company: "HS Ad Vietnam Co., Ltd.",
+      },
+      {
+        period: "03/2020 - 05/2021",
+        company: "Yeah1 Group Joint Stock Company",
+      },
+      {
+        period: "07/2019 - 12/2019",
+        company: "Dolce by Wyndham Hanoi Golden Lake Hotel",
+      },
+      {
+        period: "11/2017 - 05/2019",
+        company: "FPT Online - VnExpress",
+      },
+      {
+        period: "02/2015 - 11/2017",
+        company: "DVH-Bransons Co., Ltd.",
+      },
+    ],
   },
 ];
 
@@ -41,50 +60,156 @@ export default function Services() {
     <section id="services" className="px-5 md:px-8 py-24 md:py-36">
       <div className="mx-auto max-w-[1480px]">
         <SectionLabel
-          index="01"
-          title="Services"
-          subtitle="Five things we do well, and a thousand we politely decline."
+          index="02"
+          title="Background"
+          subtitle="Education, achievements, and professional experience."
         />
 
-        <ul className="border-t border-ink/15">
-          {services.map((s, i) => (
-            <motion.li
-              key={s.n}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{
-                duration: 0.7,
-                delay: i * 0.05,
-                ease: [0.65, 0, 0.35, 1],
-              }}
-              className="group relative border-b border-ink/15 py-7 md:py-9"
-            >
-              <span className="pointer-events-none absolute inset-0 bg-yellow origin-bottom scale-y-0 transition-transform duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-y-100 group-hover:origin-top -z-0" />
-              <div className="relative z-10 grid grid-cols-12 gap-4 md:gap-6 items-start">
-                <span className="col-span-2 md:col-span-1 font-mono text-[12px] tracking-[0.18em] text-muted group-hover:text-ink/70 pt-2">
-                  {s.n}
-                </span>
-                <h3 className="col-span-10 md:col-span-4 font-display font-medium tracking-[-0.03em] text-[clamp(28px,3.6vw,52px)] leading-[1]">
-                  {s.title}
-                </h3>
-                <p className="col-span-12 md:col-span-4 text-[15px] md:text-[16px] text-ink-2 leading-[1.55]">
-                  {s.body}
-                </p>
-                <div className="col-span-12 md:col-span-3 flex flex-wrap gap-2 md:justify-end pt-2">
-                  {s.tags.map((t) => (
-                    <span
-                      key={t}
-                      className="font-mono text-[11px] uppercase tracking-[0.14em] border border-ink/25 rounded-full px-3 py-1 group-hover:border-ink/60"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+          {cvData.slice(0, 2).map((section, sectionIndex) => (
+            <div key={section.category}>
+              <motion.h3
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{
+                  duration: 0.6,
+                  delay: sectionIndex * 0.1,
+                  ease: [0.65, 0, 0.35, 1],
+                }}
+                className="font-display font-medium tracking-[-0.03em] text-[clamp(24px,3vw,42px)] leading-[1] mb-6 md:mb-8"
+              >
+                {section.category}
+              </motion.h3>
+
+              <div className="border-t border-ink/15">
+                {section.items.map((item, itemIndex) => (
+                  <motion.div
+                    key={itemIndex}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-60px" }}
+                    transition={{
+                      duration: 0.6,
+                      delay: sectionIndex * 0.1 + itemIndex * 0.05,
+                      ease: [0.65, 0, 0.35, 1],
+                    }}
+                    className="group relative border-b border-ink/15 py-5 md:py-6"
+                  >
+                    <span className="pointer-events-none absolute inset-0 bg-yellow origin-bottom scale-y-0 transition-transform duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-y-100 group-hover:origin-top -z-0" />
+                    <div className="relative z-10">
+                      {item.organization && (
+                        <div>
+                          <h4 className="font-display font-medium text-[16px] md:text-[18px] leading-[1.3] mb-2">
+                            {item.organization}
+                          </h4>
+                          <div className="space-y-1">
+                            {item.details?.map((detail, detailIndex) => (
+                              <p
+                                key={detailIndex}
+                                className="text-[14px] md:text-[15px] text-ink-2 leading-[1.5]"
+                              >
+                                {detail}
+                              </p>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                      {item.title && (
+                        <p className="text-[14px] md:text-[15px] text-ink-2 leading-[1.55]">
+                          {item.title}
+                        </p>
+                      )}
+                      {item.company && (
+                        <div>
+                          <p className="text-[11px] md:text-[12px] font-mono uppercase tracking-[0.14em] text-muted mb-1">
+                            {item.period}
+                          </p>
+                          <h4 className="font-display font-medium text-[16px] md:text-[18px] leading-[1.3]">
+                            {item.company}
+                          </h4>
+                        </div>
+                      )}
+                    </div>
+                  </motion.div>
+                ))}
               </div>
-            </motion.li>
+            </div>
           ))}
-        </ul>
+        </div>
+
+        <div className="mt-12 md:mt-16">
+          {cvData.slice(2).map((section, sectionIndex) => (
+            <div key={section.category}>
+              <motion.h3
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{
+                  duration: 0.6,
+                  delay: sectionIndex * 0.1,
+                  ease: [0.65, 0, 0.35, 1],
+                }}
+                className="font-display font-medium tracking-[-0.03em] text-[clamp(24px,3vw,42px)] leading-[1] mb-6 md:mb-8"
+              >
+                {section.category}
+              </motion.h3>
+
+              <div className="border-t border-ink/15">
+                {section.items.map((item, itemIndex) => (
+                  <motion.div
+                    key={itemIndex}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-60px" }}
+                    transition={{
+                      duration: 0.6,
+                      delay: sectionIndex * 0.1 + itemIndex * 0.05,
+                      ease: [0.65, 0, 0.35, 1],
+                    }}
+                    className="group relative border-b border-ink/15 py-5 md:py-6"
+                  >
+                    <span className="pointer-events-none absolute inset-0 bg-yellow origin-bottom scale-y-0 transition-transform duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-y-100 group-hover:origin-top -z-0" />
+                    <div className="relative z-10">
+                      {item.organization && (
+                        <div>
+                          <h4 className="font-display font-medium text-[16px] md:text-[18px] leading-[1.3] mb-2">
+                            {item.organization}
+                          </h4>
+                          <div className="space-y-1">
+                            {item.details?.map((detail, detailIndex) => (
+                              <p
+                                key={detailIndex}
+                                className="text-[14px] md:text-[15px] text-ink-2 leading-[1.5]"
+                              >
+                                {detail}
+                              </p>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                      {item.title && (
+                        <p className="text-[14px] md:text-[15px] text-ink-2 leading-[1.55]">
+                          {item.title}
+                        </p>
+                      )}
+                      {item.company && (
+                        <div>
+                          <p className="text-[11px] md:text-[12px] font-mono uppercase tracking-[0.14em] text-muted mb-1">
+                            {item.period}
+                          </p>
+                          <h4 className="font-display font-medium text-[16px] md:text-[18px] leading-[1.3]">
+                            {item.company}
+                          </h4>
+                        </div>
+                      )}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

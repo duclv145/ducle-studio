@@ -1,10 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
+import { Space_Grotesk, Inter, JetBrains_Mono, Noto_Serif_Display } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "./components/SmoothScroll";
 
 const display = Space_Grotesk({
   variable: "--font-display",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+const serif = Noto_Serif_Display({
+  variable: "--font-serif-display",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
@@ -21,7 +27,7 @@ const mono = JetBrains_Mono({
 });
 
 const siteUrl = "https://ducle.studio";
-const title = "DucLe Studio — Digital design that refuses to blend.";
+const title = "DucLe Portfolio — Digital design that refuses to blend.";
 const description =
   "DucLe is an independent design & development studio in Hanoi crafting bold brands, websites and digital products for founders who care about the details.";
 
@@ -29,13 +35,13 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: title,
-    template: "%s · DucLe Studio",
+    template: "%s · DucLe Portfolio",
   },
   description,
-  applicationName: "DucLe Studio",
-  authors: [{ name: "DucLe Studio", url: siteUrl }],
-  creator: "DucLe Studio",
-  publisher: "DucLe Studio",
+  applicationName: "DucLe Portfolio",
+  authors: [{ name: "DucLe Portfolio", url: siteUrl }],
+  creator: "DucLe Portfolio",
+  publisher: "DucLe Portfolio",
   keywords: [
     "design studio",
     "branding",
@@ -96,7 +102,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${display.variable} ${sans.variable} ${mono.variable} antialiased`}
+      className={`${display.variable} ${serif.variable} ${sans.variable} ${mono.variable} antialiased`}
     >
       <body className="grain bg-bg text-ink min-h-svh selection:bg-yellow">
         <SmoothScroll>{children}</SmoothScroll>
