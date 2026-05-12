@@ -54,20 +54,8 @@ export default function Hero() {
             <Word i={3}>Generative</Word>
           </span>
           <span className="block">
-            <Word i={4} className="relative">
-              <span className="relative z-10">AI</span>
-              <span
-                aria-hidden
-                className="absolute inset-x-[-6%] inset-y-[14%] -z-0 rounded-[18px] bg-yellow"
-              />
-            </Word>{" "}
-            <Word i={5} className="relative">
-              <span className="relative z-10">Design</span>
-              <span
-                aria-hidden
-                className="absolute inset-x-[-6%] inset-y-[14%] -z-0 rounded-[18px] bg-yellow"
-              />
-            </Word>
+            <Word i={4}>AI</Word> <Word i={5}>Design</Word>
+            <span className="inline-block ml-3 size-3 rounded-full bg-yellow align-middle" />
           </span>
         </h1>
 
