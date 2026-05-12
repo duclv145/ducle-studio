@@ -116,8 +116,7 @@ export default function Services() {
                       }}
                       className="group relative border-b border-ink/15 py-5 md:py-6"
                     >
-                      <span className="pointer-events-none absolute inset-0 bg-yellow origin-bottom scale-y-0 transition-transform duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-y-100 group-hover:origin-top -z-0" />
-                      <div className="relative z-10">
+                      <div>
                         {'organization' in item && (
                           <div>
                             <h4 className="font-display font-medium text-[20px] md:text-[24px] leading-[1.3] mb-2">
@@ -153,7 +152,6 @@ export default function Services() {
                       </div>
                     </motion.div>
                 ))}
-
               </div>
             </div>
           ))}
@@ -188,10 +186,9 @@ export default function Services() {
                       delay: sectionIndex * 0.1 + itemIndex * 0.05,
                       ease: [0.65, 0, 0.35, 1],
                     }}
-                    className="group relative border-b border-ink/15 py-5 md:py-6"
+                    className="relative border-b border-ink/15 py-5 md:py-6"
                   >
-                    <span className="pointer-events-none absolute inset-0 bg-yellow origin-bottom scale-y-0 transition-transform duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:scale-y-100 group-hover:origin-top -z-0" />
-                    <div className="relative z-10">
+                    <div>
                       {'organization' in item && (
                         <div>
                           <h4 className="font-display font-medium text-[20px] md:text-[24px] leading-[1.3] mb-2">
