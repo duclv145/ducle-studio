@@ -45,7 +45,7 @@ export default function Hero() {
       <div className="mx-auto max-w-[1480px]">
 
         {/* big headline */}
-        <h1 className="mt-10 md:mt-16 font-display font-medium tracking-[-0.045em] leading-[0.92] text-[clamp(58px,11.5vw,200px)]">
+        <h1 className="mt-10 md:mt-16 font-display font-medium tracking-[-0.045em] leading-[0.92] text-[clamp(72px,14vw,220px)]">
           <span className="block">
             <Word i={0}>Graphic</Word> <Word i={1}>Design</Word>
           </span>
