@@ -47,13 +47,7 @@ export default function Hero() {
         {/* big headline */}
         <h1 className="mt-10 md:mt-16 font-display font-medium tracking-[-0.045em] leading-[0.92] text-[clamp(58px,11.5vw,200px)]">
           <span className="block">
-            <Word i={0}>Graphic</Word> <Word i={1} className="relative">
-              <span className="relative z-10">Design</span>
-              <span
-                aria-hidden
-                className="absolute inset-x-[-6%] inset-y-[14%] -z-0 rounded-[18px] bg-yellow"
-              />
-            </Word>
+            <Word i={0}>Graphic</Word> <Word i={1}>Design</Word>
           </span>
           <span className="block">
             <Word i={2}>-</Word>{" "}
@@ -66,7 +60,14 @@ export default function Hero() {
                 aria-hidden
                 className="absolute inset-x-[-6%] inset-y-[14%] -z-0 rounded-[18px] bg-yellow"
               />
-            </Word> <Word i={5}>Design</Word>
+            </Word>{" "}
+            <Word i={5} className="relative">
+              <span className="relative z-10">Design</span>
+              <span
+                aria-hidden
+                className="absolute inset-x-[-6%] inset-y-[14%] -z-0 rounded-[18px] bg-yellow"
+              />
+            </Word>
           </span>
         </h1>
 
