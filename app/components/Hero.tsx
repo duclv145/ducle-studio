@@ -47,7 +47,7 @@ export default function Hero() {
         {/* big headline */}
         <h1 className="mt-10 md:mt-16 font-display font-medium tracking-[-0.045em] leading-[0.92] text-[clamp(58px,11.5vw,200px)]">
           <span className="block">
-            <Word i={0} className="[font-family:var(--font-serif-display)]">Graphic</Word> <Word i={1} className="relative">
+            <Word i={0}>Graphic</Word> <Word i={1} className="relative">
               <span className="relative z-10">Design</span>
               <span
                 aria-hidden
@@ -57,10 +57,10 @@ export default function Hero() {
           </span>
           <span className="block">
             <Word i={2}>-</Word>{" "}
-            <Word i={3} className="[font-family:var(--font-serif-display)]">Generative</Word>
+            <Word i={3}>Generative</Word>
           </span>
           <span className="block">
-            <Word i={4} className="relative [font-family:var(--font-serif-display)]">
+            <Word i={4} className="relative">
               <span className="relative z-10">AI</span>
               <span
                 aria-hidden
