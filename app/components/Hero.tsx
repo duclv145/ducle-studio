@@ -53,9 +53,8 @@ export default function Hero() {
             <Word i={2}>—</Word>{" "}
             <Word i={3}>Generative</Word>
           </span>
-          <span className="flex items-baseline gap-3">
-            <Word i={4}>AI</Word> <Word i={5}>Design</Word>
-            <span className="inline-block shrink-0 size-9 rounded-full bg-yellow" style={{ transform: 'translateY(-0.15em)' }} />
+          <span>
+            <Word i={4}>AI</Word> <Word i={5}>Design</Word><span style={{ color: '#ffd60a', fontSize: 'clamp(120px, 14vw, 240px)', lineHeight: '0.8', marginLeft: '0.1em', position: 'relative', top: '0.15em' }}>.</span>
           </span>
         </h1>
 
