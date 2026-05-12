@@ -1,12 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, Inter, JetBrains_Mono, Noto_Serif_Display } from "next/font/google";
+import { Libre_Caslon_Display, Inter, JetBrains_Mono, Noto_Serif_Display } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "./components/SmoothScroll";
 
-const display = Space_Grotesk({
+const display = Libre_Caslon_Display({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400"],
 });
 
 const serif = Noto_Serif_Display({
