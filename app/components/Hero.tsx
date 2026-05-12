@@ -54,7 +54,7 @@ export default function Hero() {
             <Word i={3}>Generative</Word>
           </span>
           <span>
-            <Word i={4}>AI</Word> <Word i={5}>Design</Word><span style={{ color: '#ffd60a', fontSize: 'clamp(120px, 14vw, 240px)', lineHeight: '0.8', marginLeft: '0.1em', position: 'relative', top: '0.15em' }}>.</span>
+            <Word i={4}>AI</Word> <Word i={5}>Design</Word>
           </span>
         </h1>
 
