@@ -40,61 +40,65 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-svh px-5 md:px-8 pt-32 md:pt-40 pb-16 md:pb-20"
+      className="relative min-h-svh px-5 md:px-8 pt-24 md:pt-32 pb-16 md:pb-20"
     >
       <div className="mx-auto max-w-[1480px]">
 
         {/* big headline */}
-        <h1 className="mt-0 md:mt-2 font-display font-medium tracking-[-0.045em] leading-[0.92] text-[clamp(72px,14vw,220px)]">
+        <h1 className="mt-0 font-display font-medium tracking-[-0.045em] leading-[0.92] text-[clamp(72px,14vw,220px)]">
           <span className="block">
             <Word i={0}>Graphic</Word> <Word i={1}>Design</Word>
           </span>
           <span className="block">
-            <Word i={2}>-</Word>{" "}
+            <Word i={2}>—</Word>{" "}
             <Word i={3}>Generative</Word>
           </span>
-          <span className="flex items-end justify-between gap-4">
-            <span>
-              <Word i={4} className="relative">
-                <span className="relative z-10">AI</span>
-                <span
-                  aria-hidden
-                  className="absolute inset-x-[-6%] inset-y-[14%] -z-0 rounded-[18px] bg-yellow"
-                />
-              </Word>{" "}
-              <Word i={5} className="relative">
-                <span className="relative z-10">Design</span>
-                <span
-                  aria-hidden
-                  className="absolute inset-x-[-6%] inset-y-[14%] -z-0 rounded-[18px] bg-yellow"
-                />
-              </Word>
-            </span>
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.2, duration: 0.8 }}
-              className="shrink-0 translate-y-10"
-            >
-              <a
-                href="#work"
-                className="group inline-flex items-center gap-3 rounded-full bg-ink text-bg pl-5 pr-2 py-2 text-[13px] font-mono uppercase tracking-[0.16em] transition-all hover:gap-4 whitespace-nowrap"
-              >
-                See selected work
-                <span className="grid place-items-center size-9 rounded-full bg-yellow text-ink transition-transform group-hover:rotate-45">
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                    <path
-                      d="M3 11L11 3M11 3H4M11 3v7"
-                      stroke="currentColor"
-                      strokeWidth="1.6"
-                      strokeLinecap="square"
-                    />
-                  </svg>
-                </span>
-              </a>
-            </motion.div>
+          <span className="block">
+            <Word i={4} className="relative">
+              <span className="relative z-10">AI</span>
+              <span
+                aria-hidden
+                className="absolute inset-x-[-6%] inset-y-[14%] -z-0 rounded-[18px] bg-yellow"
+              />
+            </Word>{" "}
+            <Word i={5} className="relative">
+              <span className="relative z-10">Design</span>
+              <span
+                aria-hidden
+                className="absolute inset-x-[-6%] inset-y-[14%] -z-0 rounded-[18px] bg-yellow"
+              />
+            </Word>
           </span>
         </h1>
+
+        {/* bottom row */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.2, duration: 0.8 }}
+          className="mt-12 md:mt-16 flex items-end justify-between gap-6"
+        >
+          <p className="font-mono text-[11px] md:text-[12px] uppercase tracking-[0.16em] text-muted leading-[1.6]">
+            Senior Graphic Designer<br className="hidden sm:block" />
+            <span className="sm:hidden"> — </span>Hanoi, Vietnam
+          </p>
+          <a
+            href="#work"
+            className="group inline-flex items-center gap-2 rounded-full bg-ink text-bg pl-4 pr-2 py-2 text-[11px] md:text-[12px] font-mono uppercase tracking-[0.14em] transition-all hover:gap-3 whitespace-nowrap shrink-0"
+          >
+            See selected work
+            <span className="grid place-items-center size-6 md:size-7 rounded-full bg-yellow text-ink transition-transform group-hover:rotate-45">
+              <svg width="11" height="11" viewBox="0 0 14 14" fill="none">
+                <path
+                  d="M3 11L11 3M11 3H4M11 3v7"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="square"
+                />
+              </svg>
+            </span>
+          </a>
+        </motion.div>
       </div>
 
       {/* corner decoration */}

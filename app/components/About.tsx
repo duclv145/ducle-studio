@@ -6,17 +6,48 @@ import SectionLabel from "./SectionLabel";
 
 export default function About() {
   return (
-    <section id="about" className="px-5 md:px-8 py-24 md:py-36">
+    <section id="about" className="px-5 md:px-8 py-20 md:py-28">
       <div className="mx-auto max-w-[1480px]">
         <SectionLabel index="01" title="About" />
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-6 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 items-start">
+          {/* Photo — mobile: top, desktop: right */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.65, 0, 0.35, 1] }}
+            className="order-first md:order-last md:col-span-4 md:col-start-9"
+          >
+            <div className="w-full rounded-2xl overflow-hidden aspect-[3/4]">
+              <Image
+                src="/avatar.png"
+                alt="Duc Le — Senior Graphic Designer"
+                width={400}
+                height={533}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            {/* Stats row */}
+            <div className="mt-5 grid grid-cols-2 gap-4 border-t border-ink/10 pt-5">
+              <div>
+                <p className="font-display font-medium text-[28px] leading-none">10+</p>
+                <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.14em] text-muted">Years experience</p>
+              </div>
+              <div>
+                <p className="font-display font-medium text-[28px] leading-none">50+</p>
+                <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.14em] text-muted">Projects delivered</p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Text */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8, ease: [0.65, 0, 0.35, 1] }}
-            className="md:col-span-7"
+            className="order-last md:order-first md:col-span-7"
           >
             <p className="font-display tracking-[-0.025em] text-[clamp(26px,3vw,44px)] leading-[1.15] text-ink-2">
               With nearly a decade of experience since 2015, I've worked across
@@ -36,29 +67,16 @@ export default function About() {
               Every project reflects a commitment to thoughtful design, attention to detail,
               and creating work that lasts beyond trends.
             </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.65, 0, 0.35, 1] }}
-            className="md:col-span-5 md:col-start-9 space-y-6"
-          >
-            <div className="w-full h-auto rounded-2xl overflow-hidden">
-              <Image
-                src="/avatar.png"
-                alt="DucLe Studio"
-                width={400}
-                height={500}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="text-center md:text-left space-y-1">
-              <h4 className="font-display text-[24px] font-medium text-ink">
-                Duc Le
-              </h4>
-              <p className="text-[14px] text-muted">May 14, 1993</p>
+            {/* Skills tags */}
+            <div className="mt-8 flex flex-wrap gap-2">
+              {["Brand Identity", "UI/UX Design", "Motion Graphics", "Editorial", "Art Direction", "AI-Assisted Design"].map((skill) => (
+                <span
+                  key={skill}
+                  className="font-mono text-[11px] uppercase tracking-[0.12em] px-3 py-1.5 rounded-full border border-ink/20 text-ink/60"
+                >
+                  {skill}
+                </span>
+              ))}
             </div>
           </motion.div>
         </div>

@@ -93,12 +93,12 @@ export default function Work() {
   };
 
   return (
-    <section id="work" className="px-5 md:px-8 py-24 md:py-36">
+    <section id="work" className="px-5 md:px-8 py-20 md:py-28">
       <div className="mx-auto max-w-[1480px]">
         <SectionLabel
           index="03"
           title="Selected work"
-          subtitle="A small, opinionated reel — full archive on request."
+          subtitle="Selected projects across brand, digital, and motion."
         />
 
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
@@ -154,6 +154,18 @@ export default function Work() {
                   </h3>
                 </div>
               </div>
+
+              {/* hover "View Case Study" label */}
+              <span
+                className="absolute inset-x-0 bottom-0 flex justify-center pb-6 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 pointer-events-none"
+              >
+                <span
+                  className="font-mono text-[10px] uppercase tracking-[0.2em] px-4 py-2 rounded-full"
+                  style={{ background: p.accent, color: p.bg }}
+                >
+                  View Case Study
+                </span>
+              </span>
 
               {/* hover arrow */}
               <span

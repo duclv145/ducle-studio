@@ -77,7 +77,7 @@ const cvData: Array<{
 
 export default function Services() {
   return (
-    <section id="services" className="px-5 md:px-8 py-24 md:py-36">
+    <section id="services" className="px-5 md:px-8 py-20 md:py-28">
       <div className="mx-auto max-w-[1480px]">
         <SectionLabel
           index="02"
@@ -97,12 +97,12 @@ export default function Services() {
                   delay: sectionIndex * 0.1,
                   ease: [0.65, 0, 0.35, 1],
                 }}
-                className="font-display font-medium tracking-[-0.03em] text-[clamp(24px,3vw,42px)] leading-[1] mb-6 md:mb-8 bg-yellow px-2 inline-block"
+                className="font-display font-medium tracking-[-0.03em] text-[clamp(24px,3vw,42px)] leading-[1] mb-6 md:mb-8"
               >
                 {section.category}
               </motion.h3>
 
-              <div className={`border-t border-ink/15 ${section.category === 'Education' ? 'grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6' : section.category === 'Work Experience' ? 'grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-6' : ''}`}>
+              <div className={`border-t border-ink/15 grid grid-cols-1 ${section.category === 'Education' ? 'md:grid-cols-3' : 'md:grid-cols-2'} gap-8 md:gap-6`}>
                 {section.items.map((item, itemIndex) => (
                     <motion.div
                       key={itemIndex}
@@ -159,7 +159,7 @@ export default function Services() {
           ))}
         </div>
 
-        <div className="mt-12 md:mt-16">
+        <div className="mt-12 md:mt-16 border-t border-ink/20 pt-12 md:pt-16">
           {cvData.slice(2).map((section, sectionIndex) => (
             <div key={section.category}>
               <motion.h3
@@ -171,7 +171,7 @@ export default function Services() {
                   delay: sectionIndex * 0.1,
                   ease: [0.65, 0, 0.35, 1],
                 }}
-                className="font-display font-medium tracking-[-0.03em] text-[clamp(24px,3vw,42px)] leading-[1] mb-6 md:mb-8 bg-yellow px-2 inline-block"
+                className="font-display font-medium tracking-[-0.03em] text-[clamp(24px,3vw,42px)] leading-[1] mb-6 md:mb-8"
               >
                 {section.category}
               </motion.h3>
