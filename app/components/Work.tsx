@@ -1,7 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import SectionLabel from "./SectionLabel";
+import ProjectModal from "./ProjectModal";
 
 const projects = [
   {
@@ -13,6 +15,13 @@ const projects = [
     accent: "#ffd60a",
     bg: "#0a0a0a",
     txt: "#f4f1ec",
+    industry: "F&B",
+    agency: "DucLe Studio",
+    role: "Lead Designer",
+    deliverables: ["Brand Identity", "Website Design", "Marketing Materials"],
+    liveUrl: "https://kindredcoffee.com",
+    briefSummary: "A morning ritual, redrawn. Rooted in outcomes. Designed for real-world impact.",
+    description: "Working with Kindred Coffee, we asked: how do you design for a morning ritual? We started with conversations—about coffee, culture, and the quiet confidence that comes from knowing your craft. From there, the strategy became clear: simplify the experience, elevate the story, and let authenticity lead. The result is a visual identity that says, 'We see you. We've got you.'",
   },
   {
     n: "02",
@@ -23,6 +32,13 @@ const projects = [
     accent: "#0a0a0a",
     bg: "#ffd60a",
     txt: "#0a0a0a",
+    industry: "Music & Audio",
+    agency: "DucLe Studio",
+    role: "Creative Director",
+    deliverables: ["Brand Identity", "Motion Graphics", "UI/UX Design"],
+    liveUrl: "https://northbeat.com",
+    briefSummary: "Sound systems for the streets. Bold identity meets dynamic motion.",
+    description: "Northbeat needed an identity as bold as their sound. We created a visual system that's not just static—it breathes, moves, and responds like music itself. From logotype to motion design, every element was crafted to capture the energy and rhythm of urban culture. The identity needed to work across systems, from street installations to digital platforms, always keeping the same pulse.",
   },
   {
     n: "03",
@@ -33,6 +49,13 @@ const projects = [
     accent: "#0a0a0a",
     bg: "#ece7df",
     txt: "#0a0a0a",
+    industry: "Furniture & Design",
+    agency: "DucLe Studio",
+    role: "Design & Strategy",
+    deliverables: ["Web Design", "Editorial Layout", "Brand Guidelines"],
+    liveUrl: "https://formAtelier.com",
+    briefSummary: "Furniture, slowly. A thoughtful approach to craft and design.",
+    description: "Form Atelier is about slow design—pieces made to last, stories shared intentionally. We created a digital space that mirrors this philosophy: clean, considered, and focused on the craftsmanship behind each piece. The website becomes a gallery, not just a catalog. Every image, every word, every interaction reinforces the quality and care that goes into their furniture.",
   },
   {
     n: "04",
@@ -43,10 +66,32 @@ const projects = [
     accent: "#ffd60a",
     bg: "#15151a",
     txt: "#f4f1ec",
+    industry: "Aerospace & Tech",
+    agency: "DucLe Studio",
+    role: "Product Designer",
+    deliverables: ["UI/UX Design", "Design System", "Product Strategy"],
+    liveUrl: "https://voyagerlabs.com",
+    briefSummary: "An OS for tiny rockets. Building the future of space tech.",
+    description: "Voyager Labs approached us with a challenge: design an operating system for aerospace—something complex, technical, but still intuitive. We created a design system that makes the impossible feel possible. The interface needed to empower engineers while being clear enough for stakeholders. Every pixel serves a purpose in this intricate dance between power and simplicity.",
   },
 ];
 
 export default function Work() {
+  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(
+    null
+  );
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleProjectClick = (project: typeof projects[0]) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+  };
+
   return (
     <section id="work" className="px-5 md:px-8 py-24 md:py-36">
       <div className="mx-auto max-w-[1480px]">
@@ -68,6 +113,7 @@ export default function Work() {
                 delay: (i % 2) * 0.08,
                 ease: [0.65, 0, 0.35, 1],
               }}
+              onClick={() => handleProjectClick(p)}
               data-cursor="view"
               className={`group relative overflow-hidden rounded-[24px] md:rounded-[28px] aspect-[5/4] cursor-pointer ${
                 i % 3 === 0 ? "lg:translate-y-10" : ""
@@ -136,6 +182,11 @@ export default function Work() {
           </a>
         </div>
       </div>
+      <ProjectModal
+        project={selectedProject}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+      />
     </section>
   );
 }
