@@ -55,7 +55,7 @@ export default function Hero() {
           </span>
           <span className="block">
             <Word i={4}>AI</Word> <Word i={5}>Design</Word>
-            <span className="inline-block ml-3 size-3 rounded-full bg-yellow align-middle" />
+            <span className="inline-block ml-3 size-9 rounded-full bg-yellow align-bottom" />
           </span>
         </h1>
 
