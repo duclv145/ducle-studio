@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useRef, useCallback } from "react";
 
 const lineUp = {
   hidden: { y: "110%" },
@@ -37,15 +38,77 @@ const Word = ({
 );
 
 export default function Hero() {
+  const turbulenceRef = useRef<SVGFETurbulenceElement>(null);
+  const rafRef = useRef<number>(0);
+  const freqRef = useRef(0);
+  const dirRef = useRef(1);
+
+  const startDistort = useCallback(() => {
+    cancelAnimationFrame(rafRef.current);
+    dirRef.current = 1;
+
+    const tick = () => {
+      freqRef.current += 0.0018 * dirRef.current;
+
+      if (freqRef.current >= 0.035) {
+        dirRef.current = -1;
+      }
+      if (freqRef.current <= 0) {
+        freqRef.current = 0;
+        turbulenceRef.current?.setAttribute("baseFrequency", "0 0");
+        return;
+      }
+
+      const bx = freqRef.current;
+      const by = freqRef.current * 0.6;
+      turbulenceRef.current?.setAttribute("baseFrequency", `${bx.toFixed(4)} ${by.toFixed(4)}`);
+      rafRef.current = requestAnimationFrame(tick);
+    };
+
+    rafRef.current = requestAnimationFrame(tick);
+  }, []);
+
+  const stopDistort = useCallback(() => {
+    dirRef.current = -1;
+  }, []);
+
   return (
     <section
       id="top"
       className="relative min-h-svh px-5 md:px-8 pt-24 md:pt-32 pb-16 md:pb-20"
     >
+      {/* SVG distortion filter */}
+      <svg className="absolute" style={{ width: 0, height: 0, overflow: "hidden" }} aria-hidden>
+        <defs>
+          <filter id="hero-distort" x="-20%" y="-20%" width="140%" height="140%">
+            <feTurbulence
+              ref={turbulenceRef}
+              type="turbulence"
+              baseFrequency="0 0"
+              numOctaves="3"
+              seed="5"
+              result="noise"
+            />
+            <feDisplacementMap
+              in="SourceGraphic"
+              in2="noise"
+              scale="30"
+              xChannelSelector="R"
+              yChannelSelector="G"
+            />
+          </filter>
+        </defs>
+      </svg>
+
       <div className="mx-auto max-w-[1480px]">
 
         {/* big headline */}
-        <h1 className="mt-0 font-display font-medium tracking-[-0.045em] leading-[0.92] text-[clamp(72px,14vw,220px)]">
+        <h1
+          className="mt-0 font-display font-medium tracking-[-0.045em] leading-[0.92] text-[clamp(72px,14vw,220px)] cursor-default select-none"
+          onMouseEnter={startDistort}
+          onMouseLeave={stopDistort}
+          style={{ filter: "url(#hero-distort)" }}
+        >
           <span className="block">
             <Word i={0}>Graphic</Word> <Word i={1}>Design</Word>
           </span>
