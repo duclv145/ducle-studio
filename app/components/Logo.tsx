@@ -12,7 +12,7 @@ export default function Logo({
   return (
     <span
       className={`inline-flex items-center gap-2.5 ${className}`}
-      aria-label="DucLe"
+      aria-label="Duc Le"
     >
       <Image
         src={logo}
@@ -24,7 +24,7 @@ export default function Logo({
         style={{ height: size, width: w }}
       />
       <span className="font-display text-[15px] font-semibold tracking-[-0.02em] leading-none">
-        DucLe
+        Duc Le
       </span>
     </span>
   );
