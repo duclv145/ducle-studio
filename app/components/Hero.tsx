@@ -54,7 +54,7 @@ export default function Hero() {
             <Word i={3}>Generative</Word>
           </span>
           <span>
-            <Word i={4}>AI</Word> <Word i={5}>Design</Word>
+            <Word i={4}>AI</Word> <Word i={5}>Design.</Word>
           </span>
         </h1>
 
