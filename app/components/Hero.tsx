@@ -1,6 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useRef, useState, useCallback } from "react";
+
+const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 const lineUp = {
   hidden: { y: "110%" },
@@ -14,27 +17,60 @@ const lineUp = {
   }),
 };
 
-const Word = ({
-  children,
+function ScrambleWord({
+  text,
   i,
   className = "",
 }: {
-  children: React.ReactNode;
+  text: string;
   i: number;
   className?: string;
-}) => (
-  <span className={`inline-block overflow-hidden align-bottom ${className}`}>
-    <motion.span
-      className="inline-block"
-      variants={lineUp}
-      custom={i}
-      initial="hidden"
-      animate="show"
+}) {
+  const [display, setDisplay] = useState(text);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const iterRef = useRef(0);
+
+  const onEnter = useCallback(() => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    iterRef.current = 0;
+
+    intervalRef.current = setInterval(() => {
+      setDisplay(
+        text
+          .split("")
+          .map((char, idx) => {
+            if (idx < iterRef.current) return text[idx]; // đã resolve
+            return CHARS[Math.floor(Math.random() * CHARS.length)]; // đang scramble
+          })
+          .join("")
+      );
+
+      iterRef.current += 0.5;
+
+      if (iterRef.current >= text.length) {
+        setDisplay(text);
+        if (intervalRef.current) clearInterval(intervalRef.current);
+      }
+    }, 28);
+  }, [text]);
+
+  return (
+    <span
+      className={`inline-block overflow-hidden align-bottom cursor-default ${className}`}
+      onMouseEnter={onEnter}
     >
-      {children}
-    </motion.span>
-  </span>
-);
+      <motion.span
+        className="inline-block transition-colors duration-200 hover:text-ink/60"
+        variants={lineUp}
+        custom={i}
+        initial="hidden"
+        animate="show"
+      >
+        {display}
+      </motion.span>
+    </span>
+  );
+}
 
 export default function Hero() {
   return (
@@ -47,14 +83,25 @@ export default function Hero() {
         {/* big headline */}
         <h1 className="mt-0 font-display font-medium tracking-[-0.045em] leading-[0.92] text-[clamp(72px,14vw,220px)]">
           <span className="block">
-            <Word i={0}>Graphic</Word> <Word i={1}>Design</Word>
+            <ScrambleWord text="Graphic" i={0} /> <ScrambleWord text="Design" i={1} />
           </span>
           <span className="block">
-            <Word i={2}>—</Word>{" "}
-            <Word i={3}>Generative</Word>
+            {/* Dấu — chỉ đổi màu vàng khi hover */}
+            <span className="inline-block overflow-hidden align-bottom">
+              <motion.span
+                className="inline-block transition-colors duration-300 hover:text-yellow cursor-default"
+                variants={lineUp}
+                custom={2}
+                initial="hidden"
+                animate="show"
+              >
+                —
+              </motion.span>
+            </span>{" "}
+            <ScrambleWord text="Generative" i={3} />
           </span>
           <span>
-            <Word i={4}>AI</Word> <Word i={5}>Design</Word><span className="text-yellow">.</span>
+            <ScrambleWord text="AI" i={4} /> <ScrambleWord text="Design" i={5} /><span className="text-yellow">.</span>
           </span>
         </h1>
 
