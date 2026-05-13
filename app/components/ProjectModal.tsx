@@ -105,9 +105,7 @@ export default function ProjectModal({
 
             {/* Content */}
             <div className="mx-auto max-w-[1480px] px-5 md:px-8 py-6 md:py-8">
-            <div className="grid grid-cols-1 md:grid-cols-[1fr_320px] gap-12 md:gap-20 items-start">
-              {/* Left Column - Content */}
-              <div className="space-y-8">
+            <div className="space-y-8">
                 {/* Header */}
                 <div className="space-y-4">
                   <h1 className="font-display font-medium text-[clamp(40px,6vw,80px)] leading-[1]">
@@ -148,91 +146,6 @@ export default function ProjectModal({
                   </div>
                 )}
               </div>
-
-              {/* Right Column - Metadata Sidebar */}
-              <div className="space-y-8 md:sticky md:top-24 md:self-start">
-                {/* Discipline */}
-                <div>
-                  <p className="text-xs md:text-sm font-mono uppercase tracking-[0.16em] text-muted mb-2">
-                    Discipline
-                  </p>
-                  <p className="font-display font-medium text-[18px] md:text-[20px] leading-[1.3]">
-                    {project.discipline}
-                  </p>
-                </div>
-
-                {/* Industry */}
-                <div>
-                  <p className="text-xs md:text-sm font-mono uppercase tracking-[0.16em] text-muted mb-2">
-                    Industry
-                  </p>
-                  <p className="text-[15px] md:text-[16px] text-ink-2">
-                    {project.industry}
-                  </p>
-                </div>
-
-                {/* Agency */}
-                <div>
-                  <p className="text-xs md:text-sm font-mono uppercase tracking-[0.16em] text-muted mb-2">
-                    Agency
-                  </p>
-                  <p className="text-[15px] md:text-[16px] text-ink-2">
-                    {project.agency}
-                  </p>
-                </div>
-
-                {/* Role */}
-                <div>
-                  <p className="text-xs md:text-sm font-mono uppercase tracking-[0.16em] text-muted mb-2">
-                    My Role
-                  </p>
-                  <p className="text-[15px] md:text-[16px] text-ink-2">
-                    {project.role}
-                  </p>
-                </div>
-
-                {/* Deliverables */}
-                <div>
-                  <p className="text-xs md:text-sm font-mono uppercase tracking-[0.16em] text-muted mb-2">
-                    Deliverables
-                  </p>
-                  <ul className="space-y-1">
-                    {project.deliverables.map((item, idx) => (
-                      <li
-                        key={idx}
-                        className="text-[15px] md:text-[16px] text-ink-2"
-                      >
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Live Site Link */}
-                {project.liveUrl && (
-                  <div>
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm md:text-base text-ink font-mono uppercase tracking-[0.12em] hover:underline"
-                    >
-                      Visit Live Site ↗
-                    </a>
-                  </div>
-                )}
-
-                {/* Year */}
-                <div className="pt-4 border-t border-ink/10">
-                  <p className="text-xs md:text-sm font-mono uppercase tracking-[0.16em] text-muted mb-2">
-                    Year
-                  </p>
-                  <p className="text-[15px] md:text-[16px] text-ink-2">
-                    {project.year}
-                  </p>
-                </div>
-              </div>
-            </div>
             </div>
           </div>
         </motion.div>
