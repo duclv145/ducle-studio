@@ -133,37 +133,6 @@ export default function Work() {
                 <ProjectArt index={i} accent={p.accent} txt={p.txt} />
               )}
 
-              {/* readability gradients */}
-              <div
-                className="pointer-events-none absolute inset-x-0 top-0 h-24"
-                style={{
-                  background: `linear-gradient(to bottom, ${p.bg}cc, transparent)`,
-                }}
-              />
-              <div
-                className="pointer-events-none absolute inset-x-0 bottom-0 h-44"
-                style={{
-                  background: `linear-gradient(to top, ${p.bg}f0, transparent)`,
-                }}
-              />
-
-              {/* meta */}
-              <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-between">
-                <div className="flex items-start justify-between gap-3 font-mono text-[10px] md:text-[11px] uppercase tracking-[0.16em] opacity-80">
-                  <span className="truncate">
-                    {p.n} / {p.discipline}
-                  </span>
-                  <span className="shrink-0">{p.year}</span>
-                </div>
-                <div>
-                  <p className="font-mono text-[11px] uppercase tracking-[0.18em] opacity-70 mb-3">
-                    {p.client}
-                  </p>
-                  <h3 className="font-display tracking-[-0.03em] text-[clamp(26px,3.2vw,44px)] leading-[1.02] max-w-[18ch]">
-                    {p.title}
-                  </h3>
-                </div>
-              </div>
 
               {/* hover "View Case Study" label */}
               <span
