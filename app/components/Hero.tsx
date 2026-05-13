@@ -98,18 +98,7 @@ export default function Hero() {
                 —
               </motion.span>
             </span>{" "}
-            {/* Generative — đổi màu vàng khi hover */}
-            <span className="inline-block overflow-hidden align-bottom">
-              <motion.span
-                className="inline-block transition-colors duration-300 hover:text-yellow cursor-default"
-                variants={lineUp}
-                custom={3}
-                initial="hidden"
-                animate="show"
-              >
-                Generative
-              </motion.span>
-            </span>
+            <ScrambleWord text="Generative" i={3} />
           </span>
           <span>
             <ScrambleWord text="AI" i={4} /> <ScrambleWord text="Design" i={5} /><span className="text-yellow">.</span>
