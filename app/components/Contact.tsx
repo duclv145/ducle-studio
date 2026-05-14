@@ -163,7 +163,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="mt-12 md:mt-16 mx-auto max-w-[640px] grid grid-cols-2 gap-y-10 gap-x-16 pb-20 md:pb-28"
+            className="mt-12 md:mt-16 grid grid-cols-2 gap-y-10 gap-x-6 pb-20 md:pb-28"
           >
             {/* Location */}
             <div className="space-y-3">
