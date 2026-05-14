@@ -62,79 +62,86 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: "100%" }}
           transition={{ duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
-          className="fixed inset-0 bg-bg z-50 overflow-y-auto"
+          className="fixed inset-0 bg-bg z-50 overflow-hidden"
           data-lenis-prevent
           ref={modalRef}
         >
-          <div className="min-h-full" onClick={(e) => e.stopPropagation()}>
+          <div className="flex h-screen" onClick={(e) => e.stopPropagation()}>
 
-            {/* Top Bar */}
-            <div className="sticky top-0 z-10 bg-bg border-b border-ink/10 px-5 md:px-8 py-4 flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted">{project.n}</span>
-                <span className="font-mono text-[11px] text-muted">·</span>
-                <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted">{project.discipline}</span>
-                <span className="font-mono text-[11px] text-muted">·</span>
-                <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted">{project.year}</span>
-              </div>
-              <button
-                onClick={onClose}
-                className="flex items-center gap-2 bg-ink text-bg px-4 py-2 rounded-full font-mono text-[11px] uppercase tracking-[0.18em] hover:bg-ink/80 transition-colors"
-                aria-label="Close modal"
-              >
-                Close
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M18 6L6 18M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
+            {/* Left — sticky text panel 1/4 */}
+            <div className="w-1/4 shrink-0 h-screen sticky top-0 flex flex-col justify-between border-r border-ink/10 px-6 py-8">
+              <div className="space-y-6">
+                {/* Close */}
+                <button
+                  onClick={onClose}
+                  className="flex items-center gap-2 text-muted hover:text-ink transition-colors font-mono text-[10px] uppercase tracking-[0.18em]"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M18 6L6 18M6 6l12 12" />
+                  </svg>
+                  Close
+                </button>
 
-            {/* Content */}
-            <div className="mx-auto max-w-[1200px] px-5 md:px-8 py-10 md:py-14 space-y-10">
-
-              {/* Header */}
-              <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 items-end">
-                <div className="space-y-3">
-                  <h1 className="font-display font-medium text-[clamp(40px,6vw,80px)] leading-[1] tracking-[-0.03em]">
-                    {project.client}
-                  </h1>
-                  <p className="text-lg text-ink-2 leading-[1.5] max-w-[52ch]">
-                    {project.briefSummary}
-                  </p>
+                {/* Meta */}
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">{project.n}</span>
+                  <span className="text-muted/40">·</span>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">{project.year}</span>
                 </div>
-                <div className="flex flex-wrap gap-2">
+
+                {/* Client name */}
+                <h1 className="font-display font-medium text-[clamp(24px,2.2vw,40px)] leading-[1.1] tracking-[-0.03em]">
+                  {project.client}
+                </h1>
+
+                {/* Brief */}
+                <p className="text-[13px] text-ink-2 leading-[1.7]">
+                  {project.briefSummary}
+                </p>
+
+                {/* Description */}
+                <p className="text-[12px] text-muted leading-[1.8]">
+                  {project.description}
+                </p>
+              </div>
+
+              {/* Deliverables at bottom */}
+              <div className="space-y-3 pt-6 border-t border-ink/10">
+                <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-muted/50">Deliverables</p>
+                <div className="flex flex-col gap-1.5">
                   {project.deliverables.map((d) => (
-                    <span key={d} className="font-mono text-[10px] uppercase tracking-[0.18em] border border-ink/20 rounded-full px-3 py-1.5 text-muted">
-                      {d}
+                    <span key={d} className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted">
+                      — {d}
                     </span>
                   ))}
                 </div>
+                <div className="pt-2">
+                  <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-muted/50">{project.discipline}</span>
+                </div>
               </div>
+            </div>
 
-              {/* Image stack — all same size, consecutive */}
+            {/* Right — scrollable images 3/4 */}
+            <div className="flex-1 overflow-y-auto" data-lenis-prevent>
               {images.length > 0 ? (
                 <div className="flex flex-col">
-                  {images.map((src, i) => (
+                  {images.map((src) => (
                     <div
                       key={src}
                       className="w-full cursor-zoom-in"
                       onClick={() => setLightbox(src)}
                     >
-                      <img
-                        src={src}
-                        alt=""
-                        className="w-full h-auto block"
-                      />
+                      <img src={src} alt="" className="w-full h-auto block" />
                     </div>
                   ))}
                 </div>
               ) : (
-                <div className="rounded-2xl overflow-hidden bg-ink/5 aspect-video flex items-center justify-center">
-                  <p className="text-sm text-muted font-mono tracking-[0.12em] uppercase">Project Image</p>
+                <div className="h-full flex items-center justify-center bg-ink/5">
+                  <p className="text-sm text-muted font-mono tracking-[0.12em] uppercase">No images</p>
                 </div>
               )}
-
             </div>
+
           </div>
 
           {/* Lightbox */}
