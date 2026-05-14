@@ -90,7 +90,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
             </div>
 
             {/* Content */}
-            <div className="mx-auto max-w-[1200px] px-5 md:px-8 py-10 md:py-14 space-y-14">
+            <div className="mx-auto max-w-[1200px] px-5 md:px-8 py-10 md:py-14 space-y-10">
 
               {/* Header */}
               <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 items-end">
@@ -113,15 +113,11 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
 
               {/* Image stack — all same size, consecutive */}
               {images.length > 0 ? (
-                <div className="space-y-4">
+                <div className="flex flex-col">
                   {images.map((src, i) => (
-                    <motion.div
+                    <div
                       key={src}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: i * 0.05 }}
-                      className="rounded-2xl overflow-hidden aspect-video cursor-zoom-in"
+                      className="aspect-[4/3] w-full cursor-zoom-in overflow-hidden"
                       onClick={() => setLightbox(src)}
                     >
                       <img
@@ -129,7 +125,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                         alt=""
                         className="w-full h-full object-cover"
                       />
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
               ) : (
