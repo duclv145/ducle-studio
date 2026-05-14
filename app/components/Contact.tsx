@@ -49,8 +49,8 @@ export default function Contact() {
             </motion.div>
           </div>
 
-          {/* 4 badges — Phone · Email · Location · Social */}
-          <div className="mt-10 md:mt-14 grid grid-cols-2 gap-10 md:gap-14">
+          {/* 4 badges — 2x2 grid, icon left + text right */}
+          <div className="mt-10 md:mt-14 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
 
             {/* Phone */}
             <motion.div
@@ -58,7 +58,7 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="flex flex-col items-center gap-5 text-center"
+              className="flex items-center gap-6"
             >
               <div className="shrink-0 relative size-24">
                 <svg viewBox="0 0 100 100" className="absolute inset-0 spin-slow text-bg/40" style={{ animationDirection: "reverse" }}>
@@ -78,10 +78,13 @@ export default function Contact() {
                   </motion.svg>
                 </div>
               </div>
-              <a href="tel:+84961893268"
-                className="font-display font-medium tracking-[-0.02em] leading-snug text-[clamp(14px,1.4vw,22px)] text-bg/70 hover:text-yellow transition-colors duration-400">
-                +84 961 893 268
-              </a>
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-bg/30 mb-2">Phone</p>
+                <a href="tel:+84961893268"
+                  className="font-display font-medium tracking-[-0.02em] leading-none text-[clamp(18px,2vw,32px)] text-bg/75 hover:text-yellow transition-colors duration-300">
+                  +84 961 893 268
+                </a>
+              </div>
             </motion.div>
 
             {/* Email */}
@@ -90,7 +93,7 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="flex flex-col items-center gap-5 text-center"
+              className="flex items-center gap-6"
             >
               <div className="shrink-0 relative size-24">
                 <svg viewBox="0 0 100 100" className="absolute inset-0 spin-slow text-bg/40">
@@ -110,10 +113,13 @@ export default function Contact() {
                   </motion.svg>
                 </div>
               </div>
-              <a href="mailto:duclv145@gmail.com"
-                className="font-display font-medium tracking-[-0.02em] leading-snug text-[clamp(14px,1.4vw,22px)] text-bg/70 hover:text-yellow transition-colors duration-400">
-                duclv145@gmail.com
-              </a>
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-bg/30 mb-2">Email</p>
+                <a href="mailto:duclv145@gmail.com"
+                  className="font-display font-medium tracking-[-0.02em] leading-none text-[clamp(18px,2vw,32px)] text-bg/75 hover:text-yellow transition-colors duration-300">
+                  duclv145@gmail.com
+                </a>
+              </div>
             </motion.div>
 
             {/* Location */}
@@ -122,7 +128,7 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="flex flex-col items-center gap-5 text-center"
+              className="flex items-center gap-6"
             >
               <div className="shrink-0 relative size-24">
                 <svg viewBox="0 0 100 100" className="absolute inset-0 spin-slow text-bg/40" style={{ animationDirection: "reverse" }}>
@@ -142,9 +148,12 @@ export default function Contact() {
                   </motion.svg>
                 </div>
               </div>
-              <p className="font-display font-medium tracking-[-0.02em] leading-snug text-[clamp(14px,1.4vw,22px)] text-bg/70">
-                Hanoi, Vietnam
-              </p>
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-bg/30 mb-2">Location</p>
+                <p className="font-display font-medium tracking-[-0.02em] leading-snug text-[clamp(18px,2vw,32px)] text-bg/75">
+                  Hanoi, Vietnam
+                </p>
+              </div>
             </motion.div>
 
             {/* Social */}
@@ -153,7 +162,7 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.4 }}
-              className="flex flex-col items-center gap-5 text-center"
+              className="flex items-center gap-6"
             >
               <div className="shrink-0 relative size-24">
                 <svg viewBox="0 0 100 100" className="absolute inset-0 spin-slow text-bg/40">
@@ -173,12 +182,15 @@ export default function Contact() {
                   </motion.svg>
                 </div>
               </div>
-              <div className="flex gap-4 font-display font-medium tracking-[-0.02em] text-[clamp(14px,1.4vw,22px)] text-bg/70">
-                <a href="http://facebook.com/duclee145" target="_blank" rel="noopener noreferrer"
-                  className="hover:text-yellow transition-colors duration-400">Facebook</a>
-                <span className="text-bg/20">·</span>
-                <a href="http://linkedin.com/in/duclv145" target="_blank" rel="noopener noreferrer"
-                  className="hover:text-yellow transition-colors duration-400">LinkedIn</a>
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-bg/30 mb-2">Social</p>
+                <div className="flex gap-4 font-display font-medium tracking-[-0.02em] text-[clamp(18px,2vw,32px)] text-bg/75">
+                  <a href="http://facebook.com/duclee145" target="_blank" rel="noopener noreferrer"
+                    className="hover:text-yellow transition-colors duration-300">Facebook</a>
+                  <span className="text-bg/20">·</span>
+                  <a href="http://linkedin.com/in/duclv145" target="_blank" rel="noopener noreferrer"
+                    className="hover:text-yellow transition-colors duration-300">LinkedIn</a>
+                </div>
               </div>
             </motion.div>
 
