@@ -127,7 +127,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                       <img
                         src={src}
                         alt=""
-                        className="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-500"
+                        className="w-full h-full object-cover"
                       />
                     </motion.div>
                   ))}
