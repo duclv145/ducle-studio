@@ -23,7 +23,7 @@ const projects = [
     briefSummary: "A morning ritual, redrawn. Rooted in outcomes. Designed for real-world impact.",
     description: "Working with Kindred Coffee, we asked: how do you design for a morning ritual? We started with conversations—about coffee, culture, and the quiet confidence that comes from knowing your craft. From there, the strategy became clear: simplify the experience, elevate the story, and let authenticity lead. The result is a visual identity that says, 'We see you. We've got you.'",
     imageUrl: "/Golden Lake Palace/1.png",
-    cardImage: "/Branding/Golden Lacke Palace.png",
+    cardImage: "/Golden Lake Palace/1.png",
     images: [
       "/Golden Lake Palace/1.png",
       "/Golden Lake Palace/2.png",
