@@ -111,102 +111,28 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                 </div>
               </div>
 
-              {/* Hero image */}
-              {images[0] && (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.1 }}
-                  className="rounded-2xl overflow-hidden aspect-video cursor-zoom-in"
-                  onClick={() => setLightbox(images[0])}
-                >
-                  <img src={images[0]} alt={project.client} className="w-full h-full object-cover" />
-                </motion.div>
-              )}
-
-              {/* Description */}
-              <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8">
-                <div className="space-y-1">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted">Project Overview</p>
-                </div>
-                <p className="text-[16px] text-ink-2 leading-[1.75]">{project.description}</p>
-              </div>
-
-              {/* Gallery grid — remaining images */}
-              {images.length > 1 && (
+              {/* Image stack — all same size, consecutive */}
+              {images.length > 0 ? (
                 <div className="space-y-4">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted">Gallery</p>
-
-                  {/* 2-up row: images 1–2 */}
-                  {images.length > 1 && (
-                    <div className="grid grid-cols-2 gap-4">
-                      {images.slice(1, 3).map((src, i) => (
-                        <motion.div
-                          key={src}
-                          initial={{ opacity: 0, y: 16 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.5, delay: i * 0.08 }}
-                          className="rounded-xl overflow-hidden aspect-[4/3] cursor-zoom-in"
-                          onClick={() => setLightbox(src)}
-                        >
-                          <img src={src} alt="" className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-500" />
-                        </motion.div>
-                      ))}
-                    </div>
-                  )}
-
-                  {/* Full-width: image 3 */}
-                  {images[3] && (
+                  {images.map((src, i) => (
                     <motion.div
-                      initial={{ opacity: 0, y: 16 }}
+                      key={src}
+                      initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.5 }}
-                      className="rounded-xl overflow-hidden aspect-video cursor-zoom-in"
-                      onClick={() => setLightbox(images[3])}
+                      transition={{ duration: 0.5, delay: i * 0.05 }}
+                      className="rounded-2xl overflow-hidden aspect-video cursor-zoom-in"
+                      onClick={() => setLightbox(src)}
                     >
-                      <img src={images[3]} alt="" className="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-500" />
+                      <img
+                        src={src}
+                        alt=""
+                        className="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-500"
+                      />
                     </motion.div>
-                  )}
-
-                  {/* 3-up row: images 4–6 */}
-                  {images.length > 4 && (
-                    <div className="grid grid-cols-3 gap-4">
-                      {images.slice(4, 7).map((src, i) => (
-                        <motion.div
-                          key={src}
-                          initial={{ opacity: 0, y: 16 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.5, delay: i * 0.08 }}
-                          className="rounded-xl overflow-hidden aspect-square cursor-zoom-in"
-                          onClick={() => setLightbox(src)}
-                        >
-                          <img src={src} alt="" className="w-full h-full object-cover hover:scale-[1.04] transition-transform duration-500" />
-                        </motion.div>
-                      ))}
-                    </div>
-                  )}
-
-                  {/* Last image full-width */}
-                  {images[7] && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 16 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5 }}
-                      className="rounded-xl overflow-hidden aspect-video cursor-zoom-in"
-                      onClick={() => setLightbox(images[7])}
-                    >
-                      <img src={images[7]} alt="" className="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-500" />
-                    </motion.div>
-                  )}
+                  ))}
                 </div>
-              )}
-
-              {/* No images fallback */}
-              {images.length === 0 && (
+              ) : (
                 <div className="rounded-2xl overflow-hidden bg-ink/5 aspect-video flex items-center justify-center">
                   <p className="text-sm text-muted font-mono tracking-[0.12em] uppercase">Project Image</p>
                 </div>
