@@ -49,8 +49,49 @@ export default function Contact() {
             </motion.div>
           </div>
 
-          {/* Rotating badge + email — centered column */}
-          <div className="mt-10 md:mt-14 flex flex-col items-center gap-6">
+          {/* Rotating badges — email + phone side by side */}
+          <div className="mt-10 md:mt-14 flex flex-col md:flex-row items-center justify-center gap-12 md:gap-24">
+
+            {/* Phone */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="flex flex-col items-center gap-6"
+            >
+              <div className="shrink-0 relative size-28">
+                <svg viewBox="0 0 100 100" className="absolute inset-0 spin-slow text-bg/40" style={{ animationDirection: 'reverse' }}>
+                  <defs>
+                    <path id="phone-circle" d="M 50,50 m -36,0 a 36,36 0 1,1 72,0 a 36,36 0 1,1 -72,0" />
+                  </defs>
+                  <text className="font-mono fill-current" fontSize="9">
+                    <textPath href="#phone-circle">
+                      CALL ME · 0961 893 268 · HANOI · VN ·{" "}
+                    </textPath>
+                  </text>
+                </svg>
+                <div className="absolute inset-0 grid place-items-center">
+                  <motion.svg
+                    width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"
+                    className="text-yellow"
+                    animate={{ rotate: [0, 15, -10, 15, 0] }}
+                    transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", repeatDelay: 1 }}
+                  >
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 011 1.27 2 2 0 013 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/>
+                  </motion.svg>
+                </div>
+              </div>
+              <a
+                href="tel:+84961893268"
+                className="font-display font-medium tracking-[-0.03em] leading-none text-[clamp(20px,3.5vw,56px)] text-bg/70 hover:text-yellow transition-colors duration-500"
+              >
+                +84 961 893 268
+              </a>
+            </motion.div>
+
+          {/* Email */}
+          <div className="flex flex-col items-center gap-6">
             {/* Rotating circle badge */}
             <motion.div
               initial={{ opacity: 0, scale: 0.7 }}
@@ -82,16 +123,14 @@ export default function Contact() {
             </motion.div>
 
             {/* Email */}
-            <motion.a
+            <a
               href="mailto:duclv145@gmail.com"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.9, delay: 0.1, ease: [0.65, 0, 0.35, 1] }}
-              className="group font-display font-medium tracking-[-0.03em] leading-none text-[clamp(20px,3.5vw,56px)] text-bg/70 hover:text-yellow transition-colors duration-500"
+              className="font-display font-medium tracking-[-0.03em] leading-none text-[clamp(20px,3.5vw,56px)] text-bg/70 hover:text-yellow transition-colors duration-500"
             >
               duclv145@gmail.com
-            </motion.a>
+            </a>
+          </div>
+
           </div>
         </div>
       </div>
