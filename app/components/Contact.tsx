@@ -29,8 +29,8 @@ export default function Contact() {
         <div className="absolute bottom-60 -left-20 size-[400px] rounded-full bg-yellow/3 blur-[100px]" />
       </div>
 
-      <div className="relative px-5 md:px-8 pt-20 md:pt-32">
-        <div className="mx-auto max-w-[1480px]">
+      <div className="relative px-5 md:px-8 pt-16 md:pt-24">
+        <div className="mx-auto max-w-[1000px]">
 
           {/* Top row: label + availability badge */}
           <div className="flex items-start justify-between">
@@ -50,7 +50,7 @@ export default function Contact() {
           </div>
 
           {/* 4 badges — 2x2 grid, icon left + text right */}
-          <div className="mt-10 md:mt-14 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+          <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
 
             {/* Phone */}
             <motion.div
@@ -58,7 +58,7 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="flex items-center gap-6"
+              className="flex items-center gap-6 border border-bg/10 rounded-2xl px-6 py-5"
             >
               <div className="shrink-0 relative size-24">
                 <svg viewBox="0 0 100 100" className="absolute inset-0 spin-slow text-bg/40" style={{ animationDirection: "reverse" }}>
@@ -93,7 +93,7 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="flex items-center gap-6"
+              className="flex items-center gap-6 border border-bg/10 rounded-2xl px-6 py-5"
             >
               <div className="shrink-0 relative size-24">
                 <svg viewBox="0 0 100 100" className="absolute inset-0 spin-slow text-bg/40">
@@ -128,7 +128,7 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="flex items-center gap-6"
+              className="flex items-center gap-6 border border-bg/10 rounded-2xl px-6 py-5"
             >
               <div className="shrink-0 relative size-24">
                 <svg viewBox="0 0 100 100" className="absolute inset-0 spin-slow text-bg/40" style={{ animationDirection: "reverse" }}>
@@ -162,7 +162,7 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.4 }}
-              className="flex items-center gap-6"
+              className="flex items-center gap-6 border border-bg/10 rounded-2xl px-6 py-5"
             >
               <div className="shrink-0 relative size-24">
                 <svg viewBox="0 0 100 100" className="absolute inset-0 spin-slow text-bg/40">
