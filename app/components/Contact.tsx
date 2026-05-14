@@ -50,7 +50,7 @@ export default function Contact() {
           </div>
 
           {/* 4 badges — Phone · Email · Location · Social */}
-          <div className="mt-10 md:mt-14 grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-6">
+          <div className="mt-10 md:mt-14 grid grid-cols-2 gap-10 md:gap-14">
 
             {/* Phone */}
             <motion.div
