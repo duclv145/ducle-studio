@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { LiquidSimulation } from "./LiquidSimulation";
 
 interface Project {
   n: string;
@@ -118,7 +119,13 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
             <div className="flex-1 overflow-y-auto" data-lenis-prevent>
               {images.length > 0 ? (
                 <div className="flex flex-col">
-                  {images.map((src) => (
+                  {/* First image — liquid simulation */}
+                  <div className="w-full aspect-[4/3]">
+                    <LiquidSimulation imagePath={images[0]} text={project.client} />
+                  </div>
+
+                  {/* Remaining images */}
+                  {images.slice(1).map((src) => (
                     <div
                       key={src}
                       className="w-full cursor-zoom-in"
