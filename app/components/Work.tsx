@@ -22,8 +22,18 @@ const projects = [
     liveUrl: "https://kindredcoffee.com",
     briefSummary: "A morning ritual, redrawn. Rooted in outcomes. Designed for real-world impact.",
     description: "Working with Kindred Coffee, we asked: how do you design for a morning ritual? We started with conversations—about coffee, culture, and the quiet confidence that comes from knowing your craft. From there, the strategy became clear: simplify the experience, elevate the story, and let authenticity lead. The result is a visual identity that says, 'We see you. We've got you.'",
-    imageUrl: "/Branding/Golden Lacke Palace.png",
+    imageUrl: "/Golden Lake Palace/1.png",
     cardImage: "/Branding/Golden Lacke Palace.png",
+    images: [
+      "/Golden Lake Palace/1.png",
+      "/Golden Lake Palace/2.png",
+      "/Golden Lake Palace/3.png",
+      "/Golden Lake Palace/4.png",
+      "/Golden Lake Palace/5.png",
+      "/Golden Lake Palace/6.png",
+      "/Golden Lake Palace/7.png",
+      "/Golden Lake Palace/8.png",
+    ],
   },
   {
     n: "02",
@@ -79,7 +89,7 @@ const projects = [
 ];
 
 export default function Work() {
-  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(
+  const [selectedProject, setSelectedProject] = useState<(typeof projects)[0] | null>(
     null
   );
   const [isModalOpen, setIsModalOpen] = useState(false);
