@@ -82,26 +82,20 @@ export default function Hero() {
 
         {/* big headline */}
         <h1 className="mt-0 font-display font-medium tracking-[-0.045em] leading-[0.92] text-[clamp(72px,14vw,220px)]">
-          <span className="block">
-            <ScrambleWord text="Graphic" i={0} /> <ScrambleWord text="Design" i={1} />
+          <span className="block overflow-hidden">
+            <motion.span className="block" variants={lineUp} custom={0} initial="hidden" animate="show">
+              Graphic Design
+            </motion.span>
           </span>
-          <span className="block">
-            {/* Dấu — chỉ đổi màu vàng khi hover */}
-            <span className="inline-block overflow-hidden align-bottom">
-              <motion.span
-                className="inline-block transition-colors duration-300 hover:text-yellow cursor-default"
-                variants={lineUp}
-                custom={2}
-                initial="hidden"
-                animate="show"
-              >
-                —
-              </motion.span>
-            </span>{" "}
-            <ScrambleWord text="Generative" i={3} />
+          <span className="block overflow-hidden">
+            <motion.span className="block" variants={lineUp} custom={1} initial="hidden" animate="show">
+              — Generative
+            </motion.span>
           </span>
-          <span>
-            <ScrambleWord text="AI" i={4} /> <ScrambleWord text="Design" i={5} /><span className="text-yellow">.</span>
+          <span className="block overflow-hidden">
+            <motion.span className="block" variants={lineUp} custom={2} initial="hidden" animate="show">
+              AI Design<span className="text-yellow">.</span>
+            </motion.span>
           </span>
         </h1>
 
