@@ -74,20 +74,13 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                 {/* Close */}
                 <button
                   onClick={onClose}
-                  className="flex items-center gap-2 text-muted hover:text-ink transition-colors font-mono text-[10px] uppercase tracking-[0.18em]"
+                  className="flex items-center gap-2 bg-ink text-bg rounded-full px-4 py-2 font-mono text-[10px] uppercase tracking-[0.18em] hover:bg-ink/80 transition-colors w-fit"
                 >
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <path d="M18 6L6 18M6 6l12 12" />
                   </svg>
                   Close
                 </button>
-
-                {/* Meta */}
-                <div className="flex items-center gap-2 flex-wrap">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">{project.n}</span>
-                  <span className="text-muted/40">·</span>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">{project.year}</span>
-                </div>
 
                 {/* Client name */}
                 <h1 className="font-display font-medium text-[clamp(24px,2.2vw,40px)] leading-[1.1] tracking-[-0.03em]">
