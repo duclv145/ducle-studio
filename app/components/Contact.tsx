@@ -49,15 +49,15 @@ export default function Contact() {
             </motion.div>
           </div>
 
-          {/* Rotating badge + headline */}
-          <div className="mt-10 md:mt-14 flex items-start gap-8">
+          {/* Rotating badge + email — centered column */}
+          <div className="mt-10 md:mt-14 flex flex-col items-center gap-6">
             {/* Rotating circle badge */}
             <motion.div
               initial={{ opacity: 0, scale: 0.7 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="hidden lg:block shrink-0 relative size-28 mt-2"
+              className="shrink-0 relative size-28"
             >
               <svg viewBox="0 0 100 100" className="absolute inset-0 spin-slow text-bg/40">
                 <defs>
@@ -70,20 +70,25 @@ export default function Contact() {
                 </text>
               </svg>
               <div className="absolute inset-0 grid place-items-center">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-yellow">
+                <motion.svg
+                  width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"
+                  className="text-yellow"
+                  animate={{ y: [0, -4, 0] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                >
                   <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                </svg>
+                </motion.svg>
               </div>
             </motion.div>
 
-            {/* Headline */}
+            {/* Email */}
             <motion.a
               href="mailto:duclv145@gmail.com"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.9, ease: [0.65, 0, 0.35, 1] }}
-              className="group font-display font-medium tracking-[-0.04em] leading-[0.9] text-[clamp(36px,6.5vw,100px)] text-bg hover:text-yellow transition-colors duration-500"
+              transition={{ duration: 0.9, delay: 0.1, ease: [0.65, 0, 0.35, 1] }}
+              className="group font-display font-medium tracking-[-0.03em] leading-none text-[clamp(20px,3.5vw,56px)] text-bg/70 hover:text-yellow transition-colors duration-500"
             >
               duclv145@gmail.com
             </motion.a>
