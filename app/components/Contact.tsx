@@ -163,34 +163,8 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="mt-12 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-6 pb-20 md:pb-28"
+            className="mt-12 md:mt-16 grid grid-cols-2 gap-y-10 gap-x-6 pb-20 md:pb-28"
           >
-            {/* Phone */}
-            <div className="space-y-3">
-              <div className="flex items-center gap-2 mb-3">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-yellow">
-                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 011 1.27 2 2 0 013 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/>
-                </svg>
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-bg/30">Phone</p>
-              </div>
-              <a href="tel:+84961893268" className="block text-[15px] text-bg/65 hover:text-bg transition-colors duration-200">
-                +84 961 893 268
-              </a>
-            </div>
-
-            {/* Email */}
-            <div className="space-y-3">
-              <div className="flex items-center gap-2 mb-3">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-yellow">
-                  <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                </svg>
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-bg/30">Email</p>
-              </div>
-              <a href="mailto:duclv145@gmail.com" className="block text-[15px] text-bg/65 hover:text-bg transition-colors duration-200">
-                duclv145@gmail.com
-              </a>
-            </div>
-
             {/* Location */}
             <div className="space-y-3">
               <div className="flex items-center gap-2 mb-3">
