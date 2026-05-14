@@ -117,13 +117,13 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                   {images.map((src, i) => (
                     <div
                       key={src}
-                      className="aspect-[4/3] w-full cursor-zoom-in overflow-hidden"
+                      className="w-full cursor-zoom-in"
                       onClick={() => setLightbox(src)}
                     >
                       <img
                         src={src}
                         alt=""
-                        className="w-full h-full object-cover"
+                        className="w-full h-auto block"
                       />
                     </div>
                   ))}
