@@ -25,8 +25,8 @@ export function NoiseOverlay() {
     const draw = () => {
       rafId = requestAnimationFrame(draw);
       frame++;
-      // Refresh noise every 6 frames (~10fps) for gentle movement
-      if (frame % 6 !== 0) return;
+      // Refresh noise every 12 frames (~5fps) for very gentle movement
+      if (frame % 12 !== 0) return;
 
       const W = canvas.width;
       const H = canvas.height;
@@ -38,7 +38,7 @@ export function NoiseOverlay() {
         data[i]     = v;
         data[i + 1] = v;
         data[i + 2] = v;
-        data[i + 3] = 18; // opacity per pixel — subtle
+        data[i + 3] = 12; // opacity per pixel — very subtle
       }
 
       ctx.putImageData(imageData, 0, 0);
