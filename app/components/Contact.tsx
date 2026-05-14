@@ -77,16 +77,16 @@ export default function Contact() {
             </motion.div>
 
             {/* Headline */}
-            <motion.h2
+            <motion.a
+              href="mailto:duclv145@gmail.com"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.9, ease: [0.65, 0, 0.35, 1] }}
-              className="font-display font-medium tracking-[-0.04em] leading-[0.9] text-[clamp(48px,9vw,140px)]"
+              className="group font-display font-medium tracking-[-0.04em] leading-[0.9] text-[clamp(36px,6.5vw,100px)] text-bg hover:text-yellow transition-colors duration-500"
             >
-              Have a project<br />
-              <span className="text-bg/25">in mind?</span>
-            </motion.h2>
+              duclv145@gmail.com
+            </motion.a>
           </div>
         </div>
       </div>
@@ -111,31 +111,8 @@ export default function Contact() {
         </div>
       </motion.div>
 
-      {/* Full-width email CTA */}
       <div className="relative px-5 md:px-8">
         <div className="mx-auto max-w-[1480px]">
-          <motion.a
-            href="mailto:duclv145@gmail.com"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.65, 0, 0.35, 1] }}
-            className="group flex items-center justify-between border-b border-bg/15 py-8 md:py-10 gap-4"
-          >
-            <span className="font-display font-medium tracking-[-0.03em] text-[clamp(20px,4vw,64px)] text-bg/60 group-hover:text-yellow transition-colors duration-500 leading-none">
-              duclv145@gmail.com
-            </span>
-            <motion.span
-              whileHover={{ rotate: 45 }}
-              transition={{ duration: 0.3 }}
-              className="shrink-0 grid place-items-center size-12 md:size-16 rounded-full border border-bg/25 group-hover:bg-yellow group-hover:border-yellow group-hover:text-ink transition-colors duration-400"
-            >
-              <svg width="16" height="16" viewBox="0 0 14 14" fill="none">
-                <path d="M3 11L11 3M11 3H4M11 3v7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="square"/>
-              </svg>
-            </motion.span>
-          </motion.a>
-
           {/* Info grid */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
