@@ -105,19 +105,6 @@ export default function RootLayout({
       className={`${display.variable} ${serif.variable} ${sans.variable} ${mono.variable} antialiased`}
     >
       <body className="grain bg-bg text-ink min-h-svh selection:bg-yellow">
-        {/* Dot grid overlay — shows on light sections, invisible on dark via multiply */}
-        <div
-          aria-hidden="true"
-          style={{
-            position: "fixed",
-            inset: 0,
-            backgroundImage: "radial-gradient(circle, rgba(0,0,0,0.2) 1px, transparent 1px)",
-            backgroundSize: "28px 28px",
-            pointerEvents: "none",
-            zIndex: 9999,
-            mixBlendMode: "multiply",
-          }}
-        />
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
