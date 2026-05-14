@@ -77,6 +77,10 @@ export default function Hero() {
     <section
       id="top"
       className="relative min-h-svh px-5 md:px-8 pt-24 md:pt-32 pb-16 md:pb-20"
+      style={{
+        backgroundImage: "radial-gradient(circle, rgba(0,0,0,0.18) 1px, transparent 1px)",
+        backgroundSize: "28px 28px",
+      }}
     >
       <div className="mx-auto max-w-[1480px]">
 
