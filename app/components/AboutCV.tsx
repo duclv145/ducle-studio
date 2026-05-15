@@ -39,72 +39,37 @@ const workExperience = [
 const tools = [
   {
     name: "Photoshop",
-    icon: (
-      <svg viewBox="0 0 50 50" className="w-full h-full">
-        <rect width="50" height="50" rx="8" fill="#001e36"/>
-        <text x="50%" y="58%" dominantBaseline="middle" textAnchor="middle"
-          fill="#31A8FF" fontSize="16" fontFamily="Arial, sans-serif" fontWeight="bold">Ps</text>
-      </svg>
-    ),
+    bg: "#001e36",
+    logo: "https://cdn.simpleicons.org/adobephotoshop/31A8FF",
   },
   {
     name: "Illustrator",
-    icon: (
-      <svg viewBox="0 0 50 50" className="w-full h-full">
-        <rect width="50" height="50" rx="8" fill="#330000"/>
-        <text x="50%" y="58%" dominantBaseline="middle" textAnchor="middle"
-          fill="#FF9A00" fontSize="16" fontFamily="Arial, sans-serif" fontWeight="bold">Ai</text>
-      </svg>
-    ),
+    bg: "#330000",
+    logo: "https://cdn.simpleicons.org/adobeillustrator/FF9A00",
   },
   {
     name: "After Effects",
-    icon: (
-      <svg viewBox="0 0 50 50" className="w-full h-full">
-        <rect width="50" height="50" rx="8" fill="#0f0024"/>
-        <text x="50%" y="58%" dominantBaseline="middle" textAnchor="middle"
-          fill="#D291FF" fontSize="16" fontFamily="Arial, sans-serif" fontWeight="bold">Ae</text>
-      </svg>
-    ),
+    bg: "#0f0024",
+    logo: "https://cdn.simpleicons.org/adobeaftereffects/9999FF",
   },
   {
     name: "Claude Code",
-    icon: (
-      <svg viewBox="0 0 50 50" className="w-full h-full">
-        <rect width="50" height="50" rx="8" fill="#1a0f00"/>
-        {/* Anthropic / Claude mark — stylised diamond */}
-        <g transform="translate(25,25)">
-          <polygon points="0,-13 11,0 0,13 -11,0" fill="none" stroke="#D97706" strokeWidth="2.5" strokeLinejoin="round"/>
-          <polygon points="0,-7 6,0 0,7 -6,0" fill="#D97706"/>
-        </g>
-      </svg>
-    ),
+    bg: "#1a0f00",
+    logo: "https://cdn.simpleicons.org/anthropic/D97706",
   },
   {
     name: "Codex",
-    icon: (
-      <svg viewBox="0 0 50 50" className="w-full h-full">
-        <rect width="50" height="50" rx="8" fill="#0d0d0d"/>
-        {/* Code brackets */}
-        <g fill="none" stroke="#10b981" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="18,17 10,25 18,33"/>
-          <polyline points="32,17 40,25 32,33"/>
-          <line x1="27" y1="14" x2="23" y2="36"/>
-        </g>
-      </svg>
-    ),
+    bg: "#0d0d0d",
+    logo: "https://cdn.simpleicons.org/openai/ffffff",
   },
   {
     name: "Nano Banana",
+    bg: "#1a1500",
+    logo: null, // custom
     icon: (
-      <svg viewBox="0 0 50 50" className="w-full h-full">
-        <rect width="50" height="50" rx="8" fill="#1a1500"/>
-        {/* Banana shape */}
-        <g fill="none" stroke="#FACC15" strokeWidth="2.5" strokeLinecap="round">
-          <path d="M14 34 Q12 20 22 14 Q32 9 36 16 Q38 20 30 24 Q22 28 20 36"/>
-          <path d="M14 34 Q16 38 20 36"/>
-        </g>
-        <circle cx="36" cy="16" r="2" fill="#FACC15"/>
+      <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="#FACC15" strokeWidth="1.8" strokeLinecap="round">
+        <path d="M5 17 Q4 9 10 5 Q17 1 20 7 Q22 11 16 14 Q10 17 9 21"/>
+        <path d="M5 17 Q6 21 9 21"/>
       </svg>
     ),
   },
@@ -220,7 +185,17 @@ export default function AboutCV() {
                   {...fadeUp(0.27 + i * 0.04)}
                   className="flex flex-col items-center gap-2"
                 >
-                  <div className="w-10 h-10">{tool.icon}</div>
+                  <div
+                    className="w-10 h-10 rounded-xl flex items-center justify-center p-2.5"
+                    style={{ backgroundColor: tool.bg }}
+                  >
+                    {tool.logo ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={tool.logo} alt={tool.name} className="w-full h-full object-contain" />
+                    ) : (
+                      tool.icon
+                    )}
+                  </div>
                   <span className="font-mono text-[9px] uppercase tracking-[0.08em] text-ink/40 text-center leading-tight">
                     {tool.name}
                   </span>
