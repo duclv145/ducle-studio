@@ -82,18 +82,26 @@ export default function AboutCV() {
           {/* ── LEFT: Intro ── */}
           <motion.div {...fadeUp(0)} className="md:col-span-4">
             <p className="font-display tracking-[-0.03em] text-[clamp(28px,2.8vw,42px)] leading-[1.15] text-ink-2">
-              With nearly a decade of experience since 2015, I've worked across{" "}
-              <span className="text-ink">technology, advertising, and design</span> at companies in{" "}
-              <span className="relative inline-block isolate px-1.5 mx-0.5">
-                <span className="relative z-10">Hanoi and HCMC</span>
-                <span aria-hidden className="absolute inset-x-0 inset-y-[10%] -z-10 rounded-md bg-yellow" />
-              </span>{" "}
-              — crafting digital experiences that balance aesthetics with strategy.
+              With over a decade of dedication to the creative industry, I position myself as a{" "}
+              <span className="text-ink">Creative Tech-Driven Designer.</span>
             </p>
 
             <p className="mt-6 text-[14px] md:text-[15px] text-muted leading-[1.7]">
-              From startups to established corporations, I've collaborated with diverse teams
-              to deliver design solutions across branding, web design, and digital products.
+              From my early days at{" "}
+              <span className="text-ink/70">VnExpress</span> to my Senior role at{" "}
+              <span className="text-ink/70">Hung Thai Technology (Phu My Hung)</span>, I have
+              continuously evolved by integrating{" "}
+              <span className="relative inline-block isolate px-1 mx-0.5">
+                <span className="relative z-10">Cloud Computing (AWS)</span>
+                <span aria-hidden className="absolute inset-x-0 inset-y-[10%] -z-10 rounded-md bg-yellow" />
+              </span>{" "}
+              and AI-powered tools into my workflow.
+            </p>
+
+            <p className="mt-4 text-[14px] md:text-[15px] text-muted leading-[1.7]">
+              I believe that the intersection of traditional design thinking and cutting-edge technology{" "}
+              <span className="text-ink/70">(AI &amp; Vibe Code)</span> is the key to delivering
+              breakthrough visual solutions in today&apos;s rapidly changing market.
             </p>
 
           </motion.div>
