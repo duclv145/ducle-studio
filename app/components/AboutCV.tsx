@@ -179,7 +179,7 @@ export default function AboutCV() {
                   {...fadeUp(0.27 + i * 0.04)}
                   className="flex flex-col items-center gap-2"
                 >
-                  <div className="w-8 h-8 rounded-lg bg-yellow flex items-center justify-center p-1.5">
+                  <div className="w-10 h-10 rounded-xl bg-yellow flex items-center justify-center p-2">
                     {tool.logo ? (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img src={tool.logo} alt={tool.name} className="w-full h-full object-contain" />
