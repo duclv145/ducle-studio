@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
+
 const lineUp = {
   hidden: { y: "110%" },
   show: (i: number) => ({
@@ -15,60 +16,6 @@ const lineUp = {
   }),
 };
 
-function Avatar3D() {
-  return (
-    <div className="shrink-0 w-[88px] md:w-[112px]">
-      {/* Outer frame — static, clips inner rotation */}
-      <div
-        className="relative w-full aspect-[3/4] rounded-xl overflow-hidden bg-ink/10"
-        style={{
-          transform: "rotate(-6deg)",
-          perspective: "400px",
-          boxShadow:
-            "0 20px 40px rgba(0,0,0,0.22), 0 6px 12px rgba(0,0,0,0.14), 0 2px 4px rgba(0,0,0,0.1)",
-        }}
-      >
-        {/* Inner image — 3D rotation, oversized to hide edges */}
-        <motion.div
-          animate={{
-            rotateX: [3, 10, 3, -4, 3],
-            rotateY: [-8, 5, 14, 5, -8],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute"
-          style={{
-            inset: "-8%",
-            width: "116%",
-            height: "116%",
-            transformStyle: "preserve-3d",
-          }}
-        >
-          <Image
-            src="/avatar.png"
-            alt="Duc Le"
-            fill
-            className="object-cover"
-            sizes="130px"
-            priority
-          />
-        </motion.div>
-
-        {/* Shine overlay — stays fixed on frame */}
-        <div
-          className="absolute inset-0 pointer-events-none z-10 rounded-xl"
-          style={{
-            background:
-              "linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 55%)",
-          }}
-        />
-      </div>
-    </div>
-  );
-}
 
 export default function Hero() {
   return (
@@ -88,7 +35,9 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.2, ease: [0.65, 0, 0.35, 1] }}
           className="flex items-center gap-4 md:gap-5 mb-8 md:mb-12"
         >
-          <Avatar3D />
+          <div className="shrink-0 w-[88px] md:w-[112px] aspect-[3/4] rounded-xl overflow-hidden relative -rotate-6">
+            <Image src="/avatar.png" alt="Duc Le" fill className="object-cover" sizes="130px" priority />
+          </div>
 
           <div className="leading-[1.35]">
             <p className="font-mono text-[16px] md:text-[20px] text-muted tracking-normal">Greeting,</p>
