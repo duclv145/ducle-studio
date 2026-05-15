@@ -1,7 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
+import { useRef } from "react";
 
 const lineUp = {
   hidden: { y: "110%" },
@@ -15,6 +16,71 @@ const lineUp = {
   }),
 };
 
+function Avatar3D() {
+  const ref = useRef<HTMLDivElement>(null);
+
+  const rawX = useMotionValue(0);
+  const rawY = useMotionValue(0);
+
+  const springCfg = { stiffness: 260, damping: 24, mass: 0.6 };
+  const x = useSpring(rawX, springCfg);
+  const y = useSpring(rawY, springCfg);
+
+  const rotateY = useTransform(x, [-0.5, 0.5], [-18, 18]);
+  const rotateX = useTransform(y, [-0.5, 0.5], [14, -14]);
+
+  // shine overlay position
+  const shineX = useTransform(x, [-0.5, 0.5], ["-30%", "130%"]);
+  const shineY = useTransform(y, [-0.5, 0.5], ["-30%", "130%"]);
+  const shineOpacity = useTransform(x, [-0.5, 0, 0.5], [0.18, 0, 0.18]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = ref.current?.getBoundingClientRect();
+    if (!rect) return;
+    rawX.set((e.clientX - rect.left) / rect.width - 0.5);
+    rawY.set((e.clientY - rect.top) / rect.height - 0.5);
+  };
+
+  const handleMouseLeave = () => {
+    rawX.set(0);
+    rawY.set(0);
+  };
+
+  return (
+    <div
+      ref={ref}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="shrink-0 w-[88px] md:w-[112px] cursor-pointer"
+      style={{ perspective: 600 }}
+    >
+      <motion.div
+        style={{ rotateX, rotateY, rotate: -6, transformStyle: "preserve-3d" }}
+        className="relative w-full aspect-[3/4] rounded-xl overflow-hidden bg-ink/10 shadow-lg"
+      >
+        <Image
+          src="/avatar.png"
+          alt="Duc Le"
+          fill
+          className="object-cover"
+          sizes="130px"
+          priority
+        />
+        {/* shine overlay */}
+        <motion.div
+          style={{
+            left: shineX,
+            top: shineY,
+            opacity: shineOpacity,
+            background: "radial-gradient(circle, rgba(255,255,255,0.55) 0%, transparent 70%)",
+          }}
+          className="absolute w-[80%] h-[80%] rounded-full pointer-events-none"
+        />
+      </motion.div>
+    </div>
+  );
+}
+
 export default function Hero() {
   return (
     <section
@@ -23,7 +89,7 @@ export default function Hero() {
     >
       <div className="mx-auto w-full max-w-[1480px] flex flex-col flex-1">
 
-        {/* ── Spacer: pushes greeting + headline to lower half ── */}
+        {/* ── Spacer ── */}
         <div className="flex-1" />
 
         {/* ── Photo + Greeting ── */}
@@ -33,19 +99,8 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.2, ease: [0.65, 0, 0.35, 1] }}
           className="flex items-center gap-4 md:gap-5 mb-8 md:mb-12"
         >
-          {/* 3:4 photo — small */}
-          <div className="shrink-0 w-[88px] md:w-[112px] aspect-[3/4] rounded-xl overflow-hidden bg-ink/10 relative rotate-[-6deg]">
-            <Image
-              src="/avatar.png"
-              alt="Duc Le"
-              fill
-              className="object-cover"
-              sizes="100px"
-              priority
-            />
-          </div>
+          <Avatar3D />
 
-          {/* greeting */}
           <div className="leading-[1.35]">
             <p className="font-mono text-[16px] md:text-[20px] text-muted tracking-normal">Greeting,</p>
             <p className="font-mono text-[20px] md:text-[28px] font-medium text-ink tracking-normal">I&apos;m Duc Le</p>
