@@ -46,7 +46,7 @@ export default function Marquee() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-10%" }}
       transition={{ duration: 0.8, ease: [0.65, 0, 0.35, 1] }}
-      className="bg-yellow border-y border-yellow py-5 md:py-8 overflow-hidden"
+      className="bg-yellow border-y border-yellow py-3 md:py-5 overflow-hidden"
     >
       <div className="flex w-max marquee-track">
         {row}
