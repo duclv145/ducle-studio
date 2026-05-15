@@ -91,10 +91,7 @@ export default function AboutCV() {
               <span className="text-ink/70">VnExpress</span> to my Senior role at{" "}
               <span className="text-ink/70">Hung Thai Technology (Phu My Hung)</span>, I have
               continuously evolved by integrating{" "}
-              <span className="relative inline-block isolate px-1 mx-0.5">
-                <span className="relative z-10">Cloud Computing (AWS)</span>
-                <span aria-hidden className="absolute inset-x-0 inset-y-[10%] -z-10 rounded-md bg-yellow" />
-              </span>{" "}
+              Cloud Computing (AWS){" "}
               and AI-powered tools into my workflow.
             </p>
 
