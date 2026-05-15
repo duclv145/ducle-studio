@@ -1,8 +1,7 @@
 "use client";
 
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import { useRef } from "react";
 
 const lineUp = {
   hidden: { y: "110%" },
@@ -17,46 +16,26 @@ const lineUp = {
 };
 
 function Avatar3D() {
-  const ref = useRef<HTMLDivElement>(null);
-
-  const rawX = useMotionValue(0);
-  const rawY = useMotionValue(0);
-
-  const springCfg = { stiffness: 260, damping: 24, mass: 0.6 };
-  const x = useSpring(rawX, springCfg);
-  const y = useSpring(rawY, springCfg);
-
-  const rotateY = useTransform(x, [-0.5, 0.5], [-18, 18]);
-  const rotateX = useTransform(y, [-0.5, 0.5], [14, -14]);
-
-  // shine overlay position
-  const shineX = useTransform(x, [-0.5, 0.5], ["-30%", "130%"]);
-  const shineY = useTransform(y, [-0.5, 0.5], ["-30%", "130%"]);
-  const shineOpacity = useTransform(x, [-0.5, 0, 0.5], [0.18, 0, 0.18]);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = ref.current?.getBoundingClientRect();
-    if (!rect) return;
-    rawX.set((e.clientX - rect.left) / rect.width - 0.5);
-    rawY.set((e.clientY - rect.top) / rect.height - 0.5);
-  };
-
-  const handleMouseLeave = () => {
-    rawX.set(0);
-    rawY.set(0);
-  };
-
   return (
-    <div
-      ref={ref}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      className="shrink-0 w-[88px] md:w-[112px] cursor-pointer"
-      style={{ perspective: 600 }}
-    >
+    <div className="shrink-0 w-[88px] md:w-[112px]" style={{ perspective: 500 }}>
       <motion.div
-        style={{ rotateX, rotateY, rotate: -6, transformStyle: "preserve-3d" }}
-        className="relative w-full aspect-[3/4] rounded-xl overflow-hidden bg-ink/10 shadow-lg"
+        animate={{
+          rotateX: [6, 14, 6, -2, 6],
+          rotateY: [-10, 4, 16, 4, -10],
+          y: [0, -4, 0, 4, 0],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        style={{
+          rotate: -6,
+          transformStyle: "preserve-3d",
+          boxShadow:
+            "0 20px 40px rgba(0,0,0,0.22), 0 6px 12px rgba(0,0,0,0.14), 0 2px 4px rgba(0,0,0,0.1)",
+        }}
+        className="relative w-full aspect-[3/4] rounded-xl overflow-hidden bg-ink/10"
       >
         <Image
           src="/avatar.png"
@@ -66,15 +45,13 @@ function Avatar3D() {
           sizes="130px"
           priority
         />
-        {/* shine overlay */}
-        <motion.div
+        {/* static shine — top-left highlight */}
+        <div
+          className="absolute inset-0 pointer-events-none rounded-xl"
           style={{
-            left: shineX,
-            top: shineY,
-            opacity: shineOpacity,
-            background: "radial-gradient(circle, rgba(255,255,255,0.55) 0%, transparent 70%)",
+            background:
+              "linear-gradient(135deg, rgba(255,255,255,0.18) 0%, transparent 50%)",
           }}
-          className="absolute w-[80%] h-[80%] rounded-full pointer-events-none"
         />
       </motion.div>
     </div>
