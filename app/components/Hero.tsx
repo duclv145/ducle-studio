@@ -19,67 +19,54 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-svh px-5 md:px-8 pt-24 md:pt-28"
+      className="relative min-h-svh px-5 md:px-8 flex flex-col justify-between pt-24 md:pt-28 pb-14 md:pb-20"
     >
-      <div className="mx-auto max-w-[1480px] flex items-end gap-8 md:gap-14 min-h-[calc(100svh-6rem)] pb-16 md:pb-20">
+      <div className="mx-auto w-full max-w-[1480px] flex flex-col justify-between flex-1 gap-12">
 
-        {/* Photo 3:4 */}
+        {/* ── TOP: photo + greeting ── */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.15, ease: [0.65, 0, 0.35, 1] }}
-          className="hidden md:block shrink-0 w-[200px] lg:w-[256px] aspect-[3/4] rounded-2xl overflow-hidden bg-ink/10 relative"
+          transition={{ duration: 0.8, delay: 0.15, ease: [0.65, 0, 0.35, 1] }}
+          className="flex items-center gap-4 md:gap-5"
         >
-          <Image
-            src="/avatar.png"
-            alt="Duc Le — Graphic Designer"
-            fill
-            className="object-cover"
-            sizes="300px"
-            priority
-          />
+          {/* small 3:4 photo */}
+          <div className="shrink-0 w-[64px] md:w-[80px] aspect-[3/4] rounded-xl overflow-hidden bg-ink/10 relative">
+            <Image
+              src="/avatar.png"
+              alt="Duc Le"
+              fill
+              className="object-cover"
+              sizes="100px"
+              priority
+            />
+          </div>
+
+          {/* greeting text */}
+          <div className="font-sans leading-[1.3]">
+            <p className="text-[14px] md:text-[16px] text-muted">Greeting,</p>
+            <p className="text-[16px] md:text-[20px] font-medium text-ink">I&apos;m Duc Le</p>
+          </div>
         </motion.div>
 
-        {/* Headline */}
-        <div className="flex-1 min-w-0">
-          <h1 className="font-display font-medium tracking-[-0.04em] leading-[0.93]">
-
-            {/* Greeting — small */}
-            <span className="block overflow-hidden mb-2">
-              <motion.span
-                className="block italic font-normal text-muted text-[clamp(14px,1.2vw,20px)]"
-                variants={lineUp}
-                custom={0}
-                initial="hidden"
-                animate="show"
-              >
-                Hi,
-              </motion.span>
-            </span>
-
-            {/* Name */}
-            <span className="block overflow-hidden text-[clamp(44px,7vw,116px)]">
-              <motion.span className="block" variants={lineUp} custom={1} initial="hidden" animate="show">
-                I&apos;m Duc Le
-              </motion.span>
-            </span>
-
-            {/* Role line 1 */}
-            <span className="block overflow-hidden text-[clamp(44px,7vw,116px)]">
-              <motion.span className="block" variants={lineUp} custom={2} initial="hidden" animate="show">
-                Graphic Designer &amp;
-              </motion.span>
-            </span>
-
-            {/* Role line 2 */}
-            <span className="block overflow-hidden text-[clamp(44px,7vw,116px)]">
-              <motion.span className="block" variants={lineUp} custom={3} initial="hidden" animate="show">
-                Generative AI Designer<span className="text-yellow">.</span>
-              </motion.span>
-            </span>
-
-          </h1>
-        </div>
+        {/* ── BOTTOM: big headline ── */}
+        <h1 className="font-display font-medium tracking-[-0.045em] leading-[0.9] text-[clamp(52px,8.5vw,142px)]">
+          <span className="block overflow-hidden">
+            <motion.span className="block" variants={lineUp} custom={0} initial="hidden" animate="show">
+              Graphic Designer
+            </motion.span>
+          </span>
+          <span className="block overflow-hidden">
+            <motion.span className="block" variants={lineUp} custom={1} initial="hidden" animate="show">
+              &amp; Generative AI
+            </motion.span>
+          </span>
+          <span className="block overflow-hidden">
+            <motion.span className="block" variants={lineUp} custom={2} initial="hidden" animate="show">
+              Designer<span className="text-yellow">.</span>
+            </motion.span>
+          </span>
+        </h1>
 
       </div>
 
@@ -91,15 +78,9 @@ export default function Hero() {
         className="absolute right-5 md:right-8 top-32 md:top-40 hidden lg:block"
       >
         <div className="relative size-24 md:size-28">
-          <svg
-            viewBox="0 0 100 100"
-            className="absolute inset-0 spin-slow text-ink"
-          >
+          <svg viewBox="0 0 100 100" className="absolute inset-0 spin-slow text-ink">
             <defs>
-              <path
-                id="circle-text"
-                d="M 50,50 m -36,0 a 36,36 0 1,1 72,0 a 36,36 0 1,1 -72,0"
-              />
+              <path id="circle-text" d="M 50,50 m -36,0 a 36,36 0 1,1 72,0 a 36,36 0 1,1 -72,0" />
             </defs>
             <text className="font-mono fill-current" fontSize="9.5">
               <textPath href="#circle-text">
