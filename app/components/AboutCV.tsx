@@ -36,39 +36,6 @@ const workExperience = [
   },
 ];
 
-const tools = [
-  {
-    name: "Photoshop",
-    logo: "/logos/photoshop.svg",
-  },
-  {
-    name: "Illustrator",
-    logo: "/logos/illustrator.svg",
-  },
-  {
-    name: "After Effects",
-    logo: "/logos/aftereffects.svg",
-  },
-  {
-    name: "Claude Code",
-    logo: "/logos/anthropic.svg",
-  },
-  {
-    name: "Codex",
-    logo: "/logos/openai.svg",
-  },
-  {
-    name: "Nano Banana",
-    logo: null,
-    icon: (
-      <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="#1a1a1a" strokeWidth="1.8" strokeLinecap="round">
-        <path d="M5 17 Q4 9 10 5 Q17 1 20 7 Q22 11 16 14 Q10 17 9 21"/>
-        <path d="M5 17 Q6 21 9 21"/>
-      </svg>
-    ),
-  },
-];
-
 const education = [
   {
     school: "FPT Polytechnic",
@@ -168,32 +135,6 @@ export default function AboutCV() {
                       {item}
                     </p>
                   ))}
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Tools */}
-            <motion.p {...fadeUp(0.25)} className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted mt-10 mb-5">
-              Tools
-            </motion.p>
-            <div className="grid grid-cols-3 gap-4">
-              {tools.map((tool, i) => (
-                <motion.div
-                  key={tool.name}
-                  {...fadeUp(0.27 + i * 0.04)}
-                  className="flex flex-col items-center gap-2"
-                >
-                  <div className="w-10 h-10 rounded-xl bg-yellow flex items-center justify-center p-2">
-                    {tool.logo ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img src={tool.logo} alt={tool.name} className="w-full h-full object-contain" />
-                    ) : (
-                      tool.icon
-                    )}
-                  </div>
-                  <span className="font-mono text-[9px] uppercase tracking-[0.08em] text-ink/40 text-center leading-tight">
-                    {tool.name}
-                  </span>
                 </motion.div>
               ))}
             </div>
