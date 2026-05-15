@@ -56,17 +56,12 @@ export default function Hero() {
         <h1 className="font-display font-medium tracking-[-0.045em] leading-[0.88]">
           <span className="block overflow-hidden text-[clamp(44px,7.5vw,124px)]">
             <motion.span className="block" variants={lineUp} custom={0} initial="hidden" animate="show">
-              Graphic Designer
+              Graphic Designer &amp;
             </motion.span>
           </span>
           <span className="block overflow-hidden text-[clamp(44px,7.5vw,124px)]">
             <motion.span className="block" variants={lineUp} custom={1} initial="hidden" animate="show">
-              &amp; Generative AI
-            </motion.span>
-          </span>
-          <span className="block overflow-hidden text-[clamp(44px,7.5vw,124px)]">
-            <motion.span className="block" variants={lineUp} custom={2} initial="hidden" animate="show">
-              Designer<span className="text-yellow">.</span>
+              Generative AI Designer<span className="text-yellow">.</span>
             </motion.span>
           </span>
         </h1>
