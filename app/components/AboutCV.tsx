@@ -82,6 +82,10 @@ const education = [
     school: "FPT Arena",
     items: ["2013 · Design Thinking Workshop"],
   },
+  {
+    school: "Amazon Web Services",
+    items: ["2026 · AWS Cloud Practitioner Essentials"],
+  },
 ];
 
 const fadeUp = (delay = 0) => ({
