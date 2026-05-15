@@ -18,7 +18,7 @@ const Star = () => (
     width="22"
     height="22"
     viewBox="0 0 24 24"
-    className="shrink-0 text-yellow"
+    className="shrink-0 text-ink"
     fill="currentColor"
   >
     <path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4L12 2z" />
@@ -46,7 +46,7 @@ export default function Marquee() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-10%" }}
       transition={{ duration: 0.8, ease: [0.65, 0, 0.35, 1] }}
-      className="border-y border-line py-5 md:py-8 overflow-hidden"
+      className="bg-yellow border-y border-yellow py-5 md:py-8 overflow-hidden"
     >
       <div className="flex w-max marquee-track">
         {row}
