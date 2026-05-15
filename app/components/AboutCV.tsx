@@ -36,13 +36,12 @@ const workExperience = [
   },
 ];
 
-const tools = [
+const skills = [
   "Photoshop",
   "Illustrator",
   "After Effects",
-  "Claude Code",
-  "Codex",
-  "Nano Banana",
+  "AI Tool (Claude · ChatGPT · Gemini)",
+  "Vibe Code",
 ];
 
 const education = [
@@ -150,16 +149,16 @@ export default function AboutCV() {
 
             {/* Tools */}
             <motion.p {...fadeUp(0.25)} className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted mt-10 mb-5">
-              Tools
+              Skills
             </motion.p>
             <div className="flex flex-wrap gap-2">
-              {tools.map((tool, i) => (
+              {skills.map((skill, i) => (
                 <motion.span
-                  key={tool}
+                  key={skill}
                   {...fadeUp(0.27 + i * 0.04)}
                   className="font-mono text-[10px] uppercase tracking-[0.1em] px-3 py-1.5 rounded-full border border-ink/15 text-ink/50"
                 >
-                  {tool}
+                  {skill}
                 </motion.span>
               ))}
             </div>
