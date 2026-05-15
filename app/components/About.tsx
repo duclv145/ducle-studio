@@ -5,7 +5,7 @@ import SectionLabel from "./SectionLabel";
 
 export default function About() {
   return (
-    <section id="about" className="px-5 md:px-8 py-16 md:py-20">
+    <section id="about" className="px-5 md:px-8 py-20 md:py-28">
       <div className="mx-auto max-w-[1480px]">
         <SectionLabel index="01" title="About" />
 
