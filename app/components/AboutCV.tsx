@@ -10,7 +10,7 @@ const workExperience = [
     title: "Senior Graphic Designer",
   },
   {
-    period: "05/2021 – 01/2022",
+    period: "05/2021 – 08/2022",
     company: "HS Ad Vietnam",
     title: "Senior Graphic Designer",
   },
