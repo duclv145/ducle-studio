@@ -37,13 +37,13 @@ export default function Hero() {
         >
           <div className="shrink-0 w-[88px] md:w-[112px] relative -rotate-6">
             {/* cast shadow on ground */}
-            <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-[70%] h-3 rounded-full bg-ink/20 blur-md" />
+            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-[80%] h-5 rounded-full bg-ink/40 blur-xl" />
             {/* image with depth drop-shadow */}
             <div
               className="relative w-full aspect-[3/4] rounded-xl overflow-hidden"
               style={{
-                filter:
-                  "drop-shadow(0 2px 4px rgba(0,0,0,0.18)) drop-shadow(0 10px 20px rgba(0,0,0,0.20)) drop-shadow(0 28px 40px rgba(0,0,0,0.14))",
+                boxShadow:
+                  "0 4px 8px rgba(0,0,0,0.35), 0 16px 32px rgba(0,0,0,0.30), 0 40px 64px rgba(0,0,0,0.20)",
               }}
             >
               <Image src="/avatar.png" alt="Duc Le" fill className="object-cover" sizes="130px" priority />
