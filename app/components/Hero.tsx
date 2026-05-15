@@ -35,8 +35,19 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.2, ease: [0.65, 0, 0.35, 1] }}
           className="flex items-center gap-4 md:gap-5 mb-8 md:mb-12"
         >
-          <div className="shrink-0 w-[88px] md:w-[112px] aspect-[3/4] rounded-xl overflow-hidden relative -rotate-6">
-            <Image src="/avatar.png" alt="Duc Le" fill className="object-cover" sizes="130px" priority />
+          <div className="shrink-0 w-[88px] md:w-[112px] relative -rotate-6">
+            {/* cast shadow on ground */}
+            <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-[70%] h-3 rounded-full bg-ink/20 blur-md" />
+            {/* image with depth drop-shadow */}
+            <div
+              className="relative w-full aspect-[3/4] rounded-xl overflow-hidden"
+              style={{
+                filter:
+                  "drop-shadow(0 2px 4px rgba(0,0,0,0.18)) drop-shadow(0 10px 20px rgba(0,0,0,0.20)) drop-shadow(0 28px 40px rgba(0,0,0,0.14))",
+              }}
+            >
+              <Image src="/avatar.png" alt="Duc Le" fill className="object-cover" sizes="130px" priority />
+            </div>
           </div>
 
           <div className="leading-[1.35]">
