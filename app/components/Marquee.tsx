@@ -30,7 +30,7 @@ export default function Marquee() {
     <div className="flex items-center gap-8 md:gap-10 px-4 md:px-6 shrink-0">
       {items.map((it) => (
         <span key={it} className="flex items-center gap-8 md:gap-10 shrink-0">
-          <span className="font-display text-[clamp(20px,3.5vw,48px)] tracking-[-0.04em] leading-none">
+          <span className="font-display text-[clamp(16px,2.6vw,38px)] tracking-[-0.04em] leading-none">
             {it}
           </span>
           <Star />

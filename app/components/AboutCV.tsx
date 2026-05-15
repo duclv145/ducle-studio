@@ -61,7 +61,7 @@ const tools = [
     name: "Nano Banana",
     logo: null,
     icon: (
-      <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="#FACC15" strokeWidth="1.8" strokeLinecap="round">
+      <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="#1a1a1a" strokeWidth="1.8" strokeLinecap="round">
         <path d="M5 17 Q4 9 10 5 Q17 1 20 7 Q22 11 16 14 Q10 17 9 21"/>
         <path d="M5 17 Q6 21 9 21"/>
       </svg>
@@ -179,14 +179,12 @@ export default function AboutCV() {
                   {...fadeUp(0.27 + i * 0.04)}
                   className="flex flex-col items-center gap-2"
                 >
-                  <div className="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-xl bg-yellow flex items-center justify-center p-2">
                     {tool.logo ? (
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img src={tool.logo} alt={tool.name} className="w-full h-full object-cover" />
+                      <img src={tool.logo} alt={tool.name} className="w-full h-full object-contain" />
                     ) : (
-                      <div className="w-full h-full bg-[#1a1500] flex items-center justify-center">
-                        {tool.icon}
-                      </div>
+                      tool.icon
                     )}
                   </div>
                   <span className="font-mono text-[9px] uppercase tracking-[0.08em] text-ink/40 text-center leading-tight">
