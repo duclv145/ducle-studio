@@ -34,7 +34,7 @@ export default function Hero() {
           className="flex items-center gap-4 md:gap-5 mb-8 md:mb-12"
         >
           {/* 3:4 photo — small */}
-          <div className="shrink-0 w-[64px] md:w-[80px] aspect-[3/4] rounded-xl overflow-hidden bg-ink/10 relative rotate-[-6deg]">
+          <div className="shrink-0 w-[88px] md:w-[112px] aspect-[3/4] rounded-xl overflow-hidden bg-ink/10 relative rotate-[-6deg]">
             <Image
               src="/avatar.png"
               alt="Duc Le"
@@ -47,19 +47,19 @@ export default function Hero() {
 
           {/* greeting */}
           <div className="leading-[1.35]">
-            <p className="font-sans text-[14px] md:text-[16px] text-muted">Greeting,</p>
-            <p className="font-sans text-[16px] md:text-[20px] font-medium text-ink">I&apos;m Duc Le</p>
+            <p className="font-sans text-[16px] md:text-[20px] text-muted">Greeting,</p>
+            <p className="font-sans text-[20px] md:text-[28px] font-medium text-ink">I&apos;m Duc Le</p>
           </div>
         </motion.div>
 
         {/* ── Big Headline ── */}
         <h1 className="font-display font-medium tracking-[-0.045em] leading-[0.88]">
-          <span className="block overflow-hidden text-[clamp(52px,8.8vw,138px)]">
+          <span className="block overflow-hidden text-[clamp(58px,9.8vw,154px)]">
             <motion.span className="block" variants={lineUp} custom={0} initial="hidden" animate="show">
               Graphic Designer &amp;
             </motion.span>
           </span>
-          <span className="block overflow-hidden text-[clamp(52px,8.8vw,138px)]">
+          <span className="block overflow-hidden text-[clamp(58px,9.8vw,154px)]">
             <motion.span className="block" variants={lineUp} custom={1} initial="hidden" animate="show">
               Generative AI Designer<span className="text-yellow">.</span>
             </motion.span>
