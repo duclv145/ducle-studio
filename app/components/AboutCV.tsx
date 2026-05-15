@@ -36,6 +36,17 @@ const workExperience = [
   },
 ];
 
+const tools = [
+  "Adobe Photoshop",
+  "Adobe Illustrator",
+  "Adobe InDesign",
+  "Adobe Premiere Pro",
+  "Figma",
+  "Midjourney",
+  "Stable Diffusion",
+  "ChatGPT / Claude",
+];
+
 const education = [
   {
     school: "FPT Polytechnic",
@@ -104,26 +115,6 @@ export default function AboutCV() {
               ))}
             </div>
 
-            {/* Contact links */}
-            <div className="mt-10 space-y-2">
-              <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted mb-4">Contact</p>
-              <a href="tel:+84961893268" className="flex items-center gap-3 group">
-                <span className="size-1.5 rounded-full bg-yellow shrink-0" />
-                <span className="font-mono text-[13px] text-ink/60 group-hover:text-ink transition-colors duration-200">
-                  +84 961 893 268
-                </span>
-              </a>
-              <a href="mailto:duclv145@gmail.com" className="flex items-center gap-3 group">
-                <span className="size-1.5 rounded-full bg-yellow shrink-0" />
-                <span className="font-mono text-[13px] text-ink/60 group-hover:text-ink transition-colors duration-200">
-                  duclv145@gmail.com
-                </span>
-              </a>
-              <div className="flex items-center gap-3">
-                <span className="size-1.5 rounded-full bg-yellow shrink-0" />
-                <span className="font-mono text-[13px] text-ink/60">Hanoi, Vietnam</span>
-              </div>
-            </div>
           </motion.div>
 
           {/* ── MIDDLE: Work Experience ── */}
@@ -176,8 +167,24 @@ export default function AboutCV() {
               ))}
             </div>
 
+            {/* Tools */}
+            <motion.p {...fadeUp(0.25)} className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted mt-10 mb-4">
+              Tools
+            </motion.p>
+            <div className="flex flex-wrap gap-2">
+              {tools.map((tool, i) => (
+                <motion.span
+                  key={tool}
+                  {...fadeUp(0.27 + i * 0.03)}
+                  className="font-mono text-[10px] uppercase tracking-[0.1em] px-3 py-1.5 rounded-full border border-ink/15 text-ink/50"
+                >
+                  {tool}
+                </motion.span>
+              ))}
+            </div>
+
             {/* Availability note */}
-            <motion.div {...fadeUp(0.3)} className="mt-10 flex items-center gap-3">
+            <motion.div {...fadeUp(0.45)} className="mt-8 flex items-center gap-3">
               <span className="size-2 rounded-full bg-yellow animate-pulse shrink-0" />
               <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-ink/40">
                 Open to new projects
