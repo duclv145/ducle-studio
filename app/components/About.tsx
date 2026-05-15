@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import SectionLabel from "./SectionLabel";
 
@@ -11,43 +10,13 @@ export default function About() {
         <SectionLabel index="01" title="About" />
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 items-start">
-          {/* Photo — mobile: top, desktop: right */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.65, 0, 0.35, 1] }}
-            className="order-first md:order-last md:col-span-4 md:col-start-9"
-          >
-            <div className="w-full rounded-2xl overflow-hidden aspect-[3/4]">
-              <Image
-                src="/avatar.png"
-                alt="Duc Le — Senior Graphic Designer"
-                width={400}
-                height={533}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            {/* Stats row */}
-            <div className="mt-5 grid grid-cols-2 gap-4 border-t border-ink/10 pt-5">
-              <div>
-                <p className="font-display font-medium text-[28px] leading-none">10+</p>
-                <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.14em] text-muted">Years experience</p>
-              </div>
-              <div>
-                <p className="font-display font-medium text-[28px] leading-none">50+</p>
-                <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.14em] text-muted">Projects delivered</p>
-              </div>
-            </div>
-          </motion.div>
-
           {/* Text */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8, ease: [0.65, 0, 0.35, 1] }}
-            className="order-last md:order-first md:col-span-7"
+            className="md:col-span-10"
           >
             <p className="font-display tracking-[-0.025em] text-[clamp(26px,3vw,44px)] leading-[1.15] text-ink-2">
               With nearly a decade of experience since 2015, I've worked across
@@ -80,6 +49,7 @@ export default function About() {
             </div>
           </motion.div>
         </div>
+
       </div>
     </section>
   );
