@@ -47,8 +47,8 @@ export default function Hero() {
 
           {/* greeting */}
           <div className="leading-[1.35]">
-            <p className="font-mono text-[16px] md:text-[20px] text-muted">Greeting,</p>
-            <p className="font-mono text-[20px] md:text-[28px] font-medium text-ink">I&apos;m Duc Le</p>
+            <p className="font-mono text-[16px] md:text-[20px] text-muted tracking-normal">Greeting,</p>
+            <p className="font-mono text-[20px] md:text-[28px] font-medium text-ink tracking-normal">I&apos;m Duc Le</p>
           </div>
         </motion.div>
 
