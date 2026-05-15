@@ -198,14 +198,7 @@ export default function Work() {
           ))}
         </ul>
 
-        <div className="mt-14 flex justify-center">
-          <a
-            href="#contact"
-            className="link-underline font-mono text-[12px] uppercase tracking-[0.18em] text-muted hover:text-ink"
-          >
-            View full archive →
-          </a>
-        </div>
+
       </div>
       <ProjectModal
         project={selectedProject}
