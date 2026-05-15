@@ -81,20 +81,20 @@ export default function Hero() {
       <div className="mx-auto max-w-[1480px]">
 
         {/* big headline */}
-        <h1 className="mt-0 font-display font-medium tracking-[-0.045em] leading-[0.92] text-[clamp(72px,14vw,220px)]">
+        <h1 className="mt-0 font-display font-medium tracking-[-0.04em] leading-[0.95] text-[clamp(46px,7vw,116px)]">
           <span className="block overflow-hidden">
             <motion.span className="block" variants={lineUp} custom={0} initial="hidden" animate="show">
-              Graphic Design
+              <span className="italic font-normal">Hi, I'm</span> Đức Lê
             </motion.span>
           </span>
           <span className="block overflow-hidden">
             <motion.span className="block" variants={lineUp} custom={1} initial="hidden" animate="show">
-              — Generative
+              a Graphic Designer &amp;
             </motion.span>
           </span>
           <span className="block overflow-hidden">
             <motion.span className="block" variants={lineUp} custom={2} initial="hidden" animate="show">
-              AI Design<span className="text-yellow">.</span>
+              Generative AI Designer<span className="text-yellow">.</span>
             </motion.span>
           </span>
         </h1>
