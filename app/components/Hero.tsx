@@ -17,43 +17,55 @@ const lineUp = {
 
 function Avatar3D() {
   return (
-    <div className="shrink-0 w-[88px] md:w-[112px]" style={{ perspective: 500 }}>
-      <motion.div
-        animate={{
-          rotateX: [6, 14, 6, -2, 6],
-          rotateY: [-10, 4, 16, 4, -10],
-          y: [0, -4, 0, 4, 0],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
+    <div className="shrink-0 w-[88px] md:w-[112px]">
+      {/* Outer frame — static, clips inner rotation */}
+      <div
+        className="relative w-full aspect-[3/4] rounded-xl overflow-hidden bg-ink/10"
         style={{
-          rotate: -6,
-          transformStyle: "preserve-3d",
+          transform: "rotate(-6deg)",
+          perspective: "400px",
           boxShadow:
             "0 20px 40px rgba(0,0,0,0.22), 0 6px 12px rgba(0,0,0,0.14), 0 2px 4px rgba(0,0,0,0.1)",
         }}
-        className="relative w-full aspect-[3/4] rounded-xl overflow-hidden bg-ink/10"
       >
-        <Image
-          src="/avatar.png"
-          alt="Duc Le"
-          fill
-          className="object-cover"
-          sizes="130px"
-          priority
-        />
-        {/* static shine — top-left highlight */}
+        {/* Inner image — 3D rotation, oversized to hide edges */}
+        <motion.div
+          animate={{
+            rotateX: [3, 10, 3, -4, 3],
+            rotateY: [-8, 5, 14, 5, -8],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute"
+          style={{
+            inset: "-8%",
+            width: "116%",
+            height: "116%",
+            transformStyle: "preserve-3d",
+          }}
+        >
+          <Image
+            src="/avatar.png"
+            alt="Duc Le"
+            fill
+            className="object-cover"
+            sizes="130px"
+            priority
+          />
+        </motion.div>
+
+        {/* Shine overlay — stays fixed on frame */}
         <div
-          className="absolute inset-0 pointer-events-none rounded-xl"
+          className="absolute inset-0 pointer-events-none z-10 rounded-xl"
           style={{
             background:
-              "linear-gradient(135deg, rgba(255,255,255,0.18) 0%, transparent 50%)",
+              "linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 55%)",
           }}
         />
-      </motion.div>
+      </div>
     </div>
   );
 }
