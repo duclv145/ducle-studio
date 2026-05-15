@@ -19,18 +19,21 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-svh px-5 md:px-8 flex flex-col justify-between pt-24 md:pt-28 pb-14 md:pb-20"
+      className="relative min-h-svh px-5 md:px-8 pt-24 md:pt-28 pb-12 md:pb-16 flex flex-col"
     >
-      <div className="mx-auto w-full max-w-[1480px] flex flex-col justify-between flex-1 gap-12">
+      <div className="mx-auto w-full max-w-[1480px] flex flex-col flex-1">
 
-        {/* ── TOP: photo + greeting ── */}
+        {/* ── Spacer: pushes greeting + headline to lower half ── */}
+        <div className="flex-1" />
+
+        {/* ── Photo + Greeting ── */}
         <motion.div
-          initial={{ opacity: 0, y: 14 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.15, ease: [0.65, 0, 0.35, 1] }}
-          className="flex items-center gap-4 md:gap-5"
+          transition={{ duration: 0.7, delay: 0.2, ease: [0.65, 0, 0.35, 1] }}
+          className="flex items-center gap-4 md:gap-5 mb-8 md:mb-12"
         >
-          {/* small 3:4 photo */}
+          {/* 3:4 photo — small */}
           <div className="shrink-0 w-[64px] md:w-[80px] aspect-[3/4] rounded-xl overflow-hidden bg-ink/10 relative">
             <Image
               src="/avatar.png"
@@ -42,26 +45,26 @@ export default function Hero() {
             />
           </div>
 
-          {/* greeting text */}
-          <div className="font-sans leading-[1.3]">
-            <p className="text-[14px] md:text-[16px] text-muted">Greeting,</p>
-            <p className="text-[16px] md:text-[20px] font-medium text-ink">I&apos;m Duc Le</p>
+          {/* greeting */}
+          <div className="leading-[1.35]">
+            <p className="font-sans text-[14px] md:text-[16px] text-muted">Greeting,</p>
+            <p className="font-sans text-[16px] md:text-[20px] font-medium text-ink">I&apos;m Duc Le</p>
           </div>
         </motion.div>
 
-        {/* ── BOTTOM: big headline ── */}
-        <h1 className="font-display font-medium tracking-[-0.045em] leading-[0.9] text-[clamp(52px,8.5vw,142px)]">
-          <span className="block overflow-hidden">
+        {/* ── Big Headline ── */}
+        <h1 className="font-display font-medium tracking-[-0.045em] leading-[0.88]">
+          <span className="block overflow-hidden text-[clamp(56px,10vw,158px)]">
             <motion.span className="block" variants={lineUp} custom={0} initial="hidden" animate="show">
               Graphic Designer
             </motion.span>
           </span>
-          <span className="block overflow-hidden">
+          <span className="block overflow-hidden text-[clamp(56px,10vw,158px)]">
             <motion.span className="block" variants={lineUp} custom={1} initial="hidden" animate="show">
               &amp; Generative AI
             </motion.span>
           </span>
-          <span className="block overflow-hidden">
+          <span className="block overflow-hidden text-[clamp(56px,10vw,158px)]">
             <motion.span className="block" variants={lineUp} custom={2} initial="hidden" animate="show">
               Designer<span className="text-yellow">.</span>
             </motion.span>
@@ -70,7 +73,7 @@ export default function Hero() {
 
       </div>
 
-      {/* corner decoration */}
+      {/* corner spinning badge */}
       <motion.div
         initial={{ opacity: 0, scale: 0.6 }}
         animate={{ opacity: 1, scale: 1 }}
