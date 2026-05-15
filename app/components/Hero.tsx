@@ -1,9 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useRef, useState, useCallback } from "react";
-
-const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+import Image from "next/image";
 
 const lineUp = {
   hidden: { y: "110%" },
@@ -17,116 +15,72 @@ const lineUp = {
   }),
 };
 
-function ScrambleWord({
-  text,
-  i,
-  className = "",
-}: {
-  text: string;
-  i: number;
-  className?: string;
-}) {
-  const [display, setDisplay] = useState(text);
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const iterRef = useRef(0);
-
-  const onEnter = useCallback(() => {
-    if (intervalRef.current) clearInterval(intervalRef.current);
-    iterRef.current = 0;
-
-    intervalRef.current = setInterval(() => {
-      setDisplay(
-        text
-          .split("")
-          .map((char, idx) => {
-            if (idx < iterRef.current) return text[idx]; // đã resolve
-            return CHARS[Math.floor(Math.random() * CHARS.length)]; // đang scramble
-          })
-          .join("")
-      );
-
-      iterRef.current += 0.5;
-
-      if (iterRef.current >= text.length) {
-        setDisplay(text);
-        if (intervalRef.current) clearInterval(intervalRef.current);
-      }
-    }, 28);
-  }, [text]);
-
-  return (
-    <span
-      className={`inline-block overflow-hidden align-bottom cursor-default ${className}`}
-      onMouseEnter={onEnter}
-    >
-      <motion.span
-        className="inline-block transition-colors duration-200 hover:text-ink/60"
-        variants={lineUp}
-        custom={i}
-        initial="hidden"
-        animate="show"
-      >
-        {display}
-      </motion.span>
-    </span>
-  );
-}
-
 export default function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-svh px-5 md:px-8 pt-24 md:pt-32 pb-16 md:pb-20"
+      className="relative min-h-svh px-5 md:px-8 pt-24 md:pt-28"
     >
-      <div className="mx-auto max-w-[1480px]">
+      <div className="mx-auto max-w-[1480px] flex items-end gap-8 md:gap-14 min-h-[calc(100svh-6rem)] pb-16 md:pb-20">
 
-        {/* big headline */}
-        <h1 className="mt-0 font-display font-medium tracking-[-0.04em] leading-[0.95]">
-          <span className="block overflow-hidden text-[clamp(28px,3.5vw,58px)]">
-            <motion.span className="block" variants={lineUp} custom={0} initial="hidden" animate="show">
-              <span className="italic font-normal">Hi, I'm</span> Duc Le
-            </motion.span>
-          </span>
-          <span className="block overflow-hidden text-[clamp(56px,9.5vw,158px)]">
-            <motion.span className="block" variants={lineUp} custom={1} initial="hidden" animate="show">
-              a Graphic Designer &amp;
-            </motion.span>
-          </span>
-          <span className="block overflow-hidden text-[clamp(56px,9.5vw,158px)]">
-            <motion.span className="block" variants={lineUp} custom={2} initial="hidden" animate="show">
-              Generative AI Designer<span className="text-yellow">.</span>
-            </motion.span>
-          </span>
-        </h1>
-
-        {/* bottom row */}
+        {/* Photo 3:4 */}
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-          className="mt-12 md:mt-16 flex items-end justify-between gap-6"
+          transition={{ duration: 1, delay: 0.15, ease: [0.65, 0, 0.35, 1] }}
+          className="hidden md:block shrink-0 w-[200px] lg:w-[256px] aspect-[3/4] rounded-2xl overflow-hidden bg-ink/10 relative"
         >
-          <p className="font-mono text-[11px] md:text-[12px] uppercase tracking-[0.16em] text-muted leading-[1.6]">
-            Senior Graphic Designer<br className="hidden sm:block" />
-            <span className="sm:hidden"> — </span>Hanoi, Vietnam
-          </p>
-          <a
-            href="#work"
-            className="group inline-flex items-center gap-2 rounded-full bg-ink text-bg pl-4 pr-2 py-2 text-[11px] md:text-[12px] font-mono uppercase tracking-[0.14em] transition-all hover:gap-3 whitespace-nowrap shrink-0"
-          >
-            See selected work
-            <span className="grid place-items-center size-6 md:size-7 rounded-full bg-yellow text-ink transition-transform group-hover:rotate-45">
-              <svg width="11" height="11" viewBox="0 0 14 14" fill="none">
-                <path
-                  d="M3 11L11 3M11 3H4M11 3v7"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="square"
-                />
-              </svg>
-            </span>
-          </a>
+          <Image
+            src="/avatar.png"
+            alt="Duc Le — Graphic Designer"
+            fill
+            className="object-cover"
+            sizes="300px"
+            priority
+          />
         </motion.div>
+
+        {/* Headline */}
+        <div className="flex-1 min-w-0">
+          <h1 className="font-display font-medium tracking-[-0.04em] leading-[0.93]">
+
+            {/* Greeting — small */}
+            <span className="block overflow-hidden mb-2">
+              <motion.span
+                className="block italic font-normal text-muted text-[clamp(14px,1.2vw,20px)]"
+                variants={lineUp}
+                custom={0}
+                initial="hidden"
+                animate="show"
+              >
+                Hi,
+              </motion.span>
+            </span>
+
+            {/* Name */}
+            <span className="block overflow-hidden text-[clamp(44px,7vw,116px)]">
+              <motion.span className="block" variants={lineUp} custom={1} initial="hidden" animate="show">
+                I&apos;m Duc Le
+              </motion.span>
+            </span>
+
+            {/* Role line 1 */}
+            <span className="block overflow-hidden text-[clamp(44px,7vw,116px)]">
+              <motion.span className="block" variants={lineUp} custom={2} initial="hidden" animate="show">
+                Graphic Designer &amp;
+              </motion.span>
+            </span>
+
+            {/* Role line 2 */}
+            <span className="block overflow-hidden text-[clamp(44px,7vw,116px)]">
+              <motion.span className="block" variants={lineUp} custom={3} initial="hidden" animate="show">
+                Generative AI Designer<span className="text-yellow">.</span>
+              </motion.span>
+            </span>
+
+          </h1>
+        </div>
+
       </div>
 
       {/* corner decoration */}
