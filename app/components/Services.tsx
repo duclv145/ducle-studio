@@ -77,7 +77,7 @@ const cvData: Array<{
 
 export default function Services() {
   return (
-    <section id="services" className="px-5 md:px-8 py-20 md:py-28">
+    <section id="background" className="px-5 md:px-8 py-20 md:py-28">
       <div className="mx-auto max-w-[1480px]">
         <SectionLabel
           index="02"
@@ -102,7 +102,7 @@ export default function Services() {
                 {section.category}
               </motion.h3>
 
-              <div className={`border-t border-ink/15 grid grid-cols-1 ${section.category === 'Education' ? 'md:grid-cols-3' : 'md:grid-cols-2'} gap-0`}>
+              <div className={`border-t border-ink/15 grid grid-cols-1 ${section.category === 'Education' ? 'md:grid-cols-3 md:divide-x md:divide-ink/10' : 'md:grid-cols-2 md:divide-x md:divide-ink/10'} gap-0`}>
                 {section.items.map((item, itemIndex) => (
                     <motion.div
                       key={itemIndex}
@@ -114,7 +114,7 @@ export default function Services() {
                         delay: sectionIndex * 0.1 + itemIndex * 0.05,
                         ease: [0.65, 0, 0.35, 1],
                       }}
-                      className="group relative border-b border-ink/15 py-3 md:py-4"
+                      className="group relative border-b border-ink/15 py-4 md:py-5 md:px-5 first:md:pl-0"
                     >
                       <div>
                         {'organization' in item && (
@@ -157,77 +157,6 @@ export default function Services() {
           ))}
         </div>
 
-        <div className="mt-8 md:mt-10 border-t border-ink/20 pt-8 md:pt-10">
-          {cvData.slice(2).map((section, sectionIndex) => (
-            <div key={section.category}>
-              <motion.h3
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{
-                  duration: 0.6,
-                  delay: sectionIndex * 0.1,
-                  ease: [0.65, 0, 0.35, 1],
-                }}
-                className="font-display font-medium tracking-[-0.03em] text-[clamp(24px,3vw,42px)] leading-[1] mb-4 md:mb-5"
-              >
-                {section.category}
-              </motion.h3>
-
-              <div className="border-t border-ink/15">
-                {section.items.map((item, itemIndex) => (
-                  <motion.div
-                    key={itemIndex}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-60px" }}
-                    transition={{
-                      duration: 0.6,
-                      delay: sectionIndex * 0.1 + itemIndex * 0.05,
-                      ease: [0.65, 0, 0.35, 1],
-                    }}
-                    className="relative border-b border-ink/15 py-3 md:py-4"
-                  >
-                    <div>
-                      {'organization' in item && (
-                        <div>
-                          <h4 className="font-display font-medium text-[20px] md:text-[24px] leading-[1.3] mb-2">
-                            {(item as EducationItem).organization}
-                          </h4>
-                          <div className="space-y-1">
-                            {(item as EducationItem).details?.map((detail, detailIndex) => (
-                              <p
-                                key={detailIndex}
-                                className="text-[14px] md:text-[15px] text-ink-2 leading-[1.5]"
-                              >
-                                {detail}
-                              </p>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                      {'company' in item && (
-                        <div>
-                          <p className="text-[11px] md:text-[12px] font-mono uppercase tracking-[0.14em] text-muted mb-1">
-                            {(item as WorkItem).period}
-                          </p>
-                          <h4 className="font-display font-medium text-[20px] md:text-[24px] leading-[1.3] mb-2">
-                            {(item as WorkItem).company}
-                          </h4>
-                          {(item as WorkItem & { title?: string }).title && (
-                            <p className="text-[14px] md:text-[15px] text-ink-2 leading-[1.5]">
-                              {(item as WorkItem & { title?: string }).title}
-                            </p>
-                          )}
-                        </div>
-                      )}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );

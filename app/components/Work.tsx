@@ -201,7 +201,7 @@ export default function Work() {
 
         <div className="mt-14 flex justify-center">
           <a
-            href="#contact"
+            href="mailto:duclv145@gmail.com"
             className="link-underline font-mono text-[12px] uppercase tracking-[0.18em] text-muted hover:text-ink"
           >
             View full archive →
