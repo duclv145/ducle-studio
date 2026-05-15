@@ -37,14 +37,108 @@ const workExperience = [
 ];
 
 const tools = [
-  "Adobe Photoshop",
-  "Adobe Illustrator",
-  "Adobe InDesign",
-  "Adobe Premiere Pro",
-  "Figma",
-  "Midjourney",
-  "Stable Diffusion",
-  "ChatGPT / Claude",
+  {
+    name: "Photoshop",
+    icon: (
+      <svg viewBox="0 0 50 50" className="w-full h-full">
+        <rect width="50" height="50" rx="8" fill="#001e36"/>
+        <text x="50%" y="58%" dominantBaseline="middle" textAnchor="middle"
+          fill="#31A8FF" fontSize="16" fontFamily="Arial, sans-serif" fontWeight="bold">Ps</text>
+      </svg>
+    ),
+  },
+  {
+    name: "Illustrator",
+    icon: (
+      <svg viewBox="0 0 50 50" className="w-full h-full">
+        <rect width="50" height="50" rx="8" fill="#330000"/>
+        <text x="50%" y="58%" dominantBaseline="middle" textAnchor="middle"
+          fill="#FF9A00" fontSize="16" fontFamily="Arial, sans-serif" fontWeight="bold">Ai</text>
+      </svg>
+    ),
+  },
+  {
+    name: "InDesign",
+    icon: (
+      <svg viewBox="0 0 50 50" className="w-full h-full">
+        <rect width="50" height="50" rx="8" fill="#49021f"/>
+        <text x="50%" y="58%" dominantBaseline="middle" textAnchor="middle"
+          fill="#FF3366" fontSize="16" fontFamily="Arial, sans-serif" fontWeight="bold">Id</text>
+      </svg>
+    ),
+  },
+  {
+    name: "Premiere Pro",
+    icon: (
+      <svg viewBox="0 0 50 50" className="w-full h-full">
+        <rect width="50" height="50" rx="8" fill="#00005b"/>
+        <text x="50%" y="58%" dominantBaseline="middle" textAnchor="middle"
+          fill="#9999FF" fontSize="16" fontFamily="Arial, sans-serif" fontWeight="bold">Pr</text>
+      </svg>
+    ),
+  },
+  {
+    name: "Figma",
+    icon: (
+      <svg viewBox="0 0 50 50" className="w-full h-full">
+        <rect width="50" height="50" rx="8" fill="#1e1e1e"/>
+        <g transform="translate(15,7)">
+          {/* Figma logo — simplified F shape with brand colors */}
+          <rect x="0" y="0" width="10" height="10" rx="5" fill="#F24E1E"/>
+          <rect x="10" y="0" width="10" height="10" rx="5" fill="#FF7262"/>
+          <rect x="0" y="10" width="10" height="10" rx="5" fill="#A259FF"/>
+          <rect x="0" y="20" width="10" height="10" rx="5" fill="#0ACF83"/>
+          <circle cx="15" cy="15" r="5" fill="#1ABCFE"/>
+        </g>
+      </svg>
+    ),
+  },
+  {
+    name: "Midjourney",
+    icon: (
+      <svg viewBox="0 0 50 50" className="w-full h-full">
+        <rect width="50" height="50" rx="8" fill="#000"/>
+        {/* Midjourney boat/sail icon simplified */}
+        <g transform="translate(7,8)" stroke="white" strokeWidth="1.8" fill="none" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M18 4 L6 28 L30 28 Z"/>
+          <path d="M18 4 L28 22"/>
+          <line x1="4" y1="32" x2="32" y2="32"/>
+        </g>
+      </svg>
+    ),
+  },
+  {
+    name: "Stable Diffusion",
+    icon: (
+      <svg viewBox="0 0 50 50" className="w-full h-full">
+        <rect width="50" height="50" rx="8" fill="#0f0f23"/>
+        <defs>
+          <linearGradient id="sd-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#6366f1"/>
+            <stop offset="100%" stopColor="#a855f7"/>
+          </linearGradient>
+        </defs>
+        {/* Diffusion waves */}
+        <g stroke="url(#sd-grad)" strokeWidth="2" fill="none" strokeLinecap="round">
+          <path d="M10 25 Q17.5 15 25 25 Q32.5 35 40 25"/>
+          <path d="M10 19 Q17.5 9 25 19 Q32.5 29 40 19"/>
+          <path d="M10 31 Q17.5 21 25 31 Q32.5 41 40 31"/>
+        </g>
+      </svg>
+    ),
+  },
+  {
+    name: "ChatGPT",
+    icon: (
+      <svg viewBox="0 0 50 50" className="w-full h-full">
+        <rect width="50" height="50" rx="8" fill="#0d0d0d"/>
+        {/* OpenAI logo simplified */}
+        <g transform="translate(9,9)" fill="white">
+          <path d="M16 0C8.8 0 3 5.8 3 13c0 3.1 1.1 6 3 8.2L4 28l6.8-2C12.4 26.6 14.1 27 16 27c7.2 0 13-5.8 13-13S23.2 0 16 0zm0 2.5c5.8 0 10.5 4.7 10.5 10.5S21.8 23.5 16 23.5c-1.7 0-3.3-.4-4.7-1.2L10 22l-1.5.5.5-1.7-.4-.5C7 18.9 5.5 17 5.5 13 5.5 7.2 10.2 2.5 16 2.5z"/>
+        </g>
+      </svg>
+    ),
+  },
 ];
 
 const education = [
@@ -168,18 +262,21 @@ export default function AboutCV() {
             </div>
 
             {/* Tools */}
-            <motion.p {...fadeUp(0.25)} className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted mt-10 mb-4">
+            <motion.p {...fadeUp(0.25)} className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted mt-10 mb-5">
               Tools
             </motion.p>
-            <div className="flex flex-wrap gap-2">
+            <div className="grid grid-cols-4 gap-4">
               {tools.map((tool, i) => (
-                <motion.span
-                  key={tool}
-                  {...fadeUp(0.27 + i * 0.03)}
-                  className="font-mono text-[10px] uppercase tracking-[0.1em] px-3 py-1.5 rounded-full border border-ink/15 text-ink/50"
+                <motion.div
+                  key={tool.name}
+                  {...fadeUp(0.27 + i * 0.04)}
+                  className="flex flex-col items-center gap-2"
                 >
-                  {tool}
-                </motion.span>
+                  <div className="w-10 h-10">{tool.icon}</div>
+                  <span className="font-mono text-[9px] uppercase tracking-[0.08em] text-ink/40 text-center leading-tight">
+                    {tool.name}
+                  </span>
+                </motion.div>
               ))}
             </div>
 
