@@ -36,9 +36,9 @@ export default function Hero() {
           className="flex items-center gap-4 md:gap-5 mb-8 md:mb-12"
         >
           <div className="shrink-0 relative -rotate-6">
-            <div className="relative w-[112px] md:w-[140px] overflow-hidden rounded-full"
+            <div className="relative w-[90px] md:w-[112px] overflow-hidden rounded-2xl"
               style={{
-                aspectRatio: "1/1",
+                aspectRatio: "3/4",
                 boxShadow: "0 4px 12px rgba(0,0,0,0.18), 0 12px 32px rgba(0,0,0,0.14), 0 24px 48px rgba(0,0,0,0.08)",
               }}
             >
