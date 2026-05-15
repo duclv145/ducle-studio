@@ -75,7 +75,7 @@ export default function AboutCV() {
   return (
     <section id="about" className="px-5 md:px-8 py-20 md:py-28">
       <div className="mx-auto max-w-[1480px]">
-        <SectionLabel index="01" title="About" subtitle="Background, experience & education." />
+        <SectionLabel index="01" title="About" />
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-10 items-start">
 

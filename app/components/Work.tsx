@@ -132,7 +132,6 @@ export default function Work() {
         <SectionLabel
           index="03"
           title="Selected work"
-          subtitle="Selected projects across brand, digital, and motion."
         />
 
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
