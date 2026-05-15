@@ -156,15 +156,6 @@ const education = [
   },
 ];
 
-const skills = [
-  "Brand Identity",
-  "UI/UX Design",
-  "Motion Graphics",
-  "Editorial",
-  "Art Direction",
-  "AI-Assisted Design",
-];
-
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
@@ -196,18 +187,6 @@ export default function AboutCV() {
               From startups to established corporations, I've collaborated with diverse teams
               to deliver design solutions across branding, web design, and digital products.
             </p>
-
-            {/* Skills */}
-            <div className="mt-8 flex flex-wrap gap-2">
-              {skills.map((skill) => (
-                <span
-                  key={skill}
-                  className="font-mono text-[10px] uppercase tracking-[0.12em] px-3 py-1.5 rounded-full border border-ink/20 text-ink/60"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
 
           </motion.div>
 
