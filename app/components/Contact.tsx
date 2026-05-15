@@ -209,7 +209,7 @@ export default function Contact() {
         <div className="flex w-max marquee-track">
           {[...marqueeItems, ...marqueeItems].map((item, i) => (
             <span key={i} className="inline-flex items-center shrink-0">
-              <span className="font-mono text-[11px] md:text-[13px] uppercase tracking-[0.2em] text-bg/50 whitespace-nowrap">
+              <span className="font-mono text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-bg/50 whitespace-nowrap">
                 {item}
               </span>
               <Dot />

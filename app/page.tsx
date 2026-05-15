@@ -1,9 +1,8 @@
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import Marquee from "./components/Marquee";
-import Services from "./components/Services";
+import AboutCV from "./components/AboutCV";
 import Work from "./components/Work";
-import About from "./components/About";
 import Contact from "./components/Contact";
 import StructuredData from "./components/StructuredData";
 import Loader from "./components/Loader";
@@ -19,8 +18,7 @@ export default function Home() {
       <main>
         <Hero />
         <Marquee />
-        <About />
-        <Services />
+        <AboutCV />
         <Work />
         <Contact />
       </main>

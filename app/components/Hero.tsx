@@ -35,8 +35,13 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.2, ease: [0.65, 0, 0.35, 1] }}
           className="flex items-center gap-4 md:gap-5 mb-8 md:mb-12"
         >
-          <div className="shrink-0 w-[104px] md:w-[132px] relative -rotate-6">
-            <div className="relative w-full aspect-[3/4] overflow-hidden rounded-[10px]">
+          <div className="shrink-0 relative -rotate-6">
+            <div className="relative w-[112px] md:w-[140px] overflow-hidden rounded-full"
+              style={{
+                aspectRatio: "1/1",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.18), 0 12px 32px rgba(0,0,0,0.14), 0 24px 48px rgba(0,0,0,0.08)",
+              }}
+            >
               <Image src="/avatar.png" alt="Duc Le" fill className="object-cover" sizes="130px" priority unoptimized />
             </div>
           </div>
