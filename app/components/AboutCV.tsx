@@ -7,6 +7,7 @@ const workExperience = [
   {
     period: "08/2022 – 10/2023",
     company: "Hưng Thái Technology",
+    sub: "Phú Mỹ Hưng Development Corporation",
     title: "Senior Graphic Designer",
   },
   {
@@ -115,6 +116,11 @@ export default function AboutCV() {
                   <p className="font-display font-medium text-[17px] md:text-[19px] leading-[1.25] text-ink">
                     {job.company}
                   </p>
+                  {job.sub && (
+                    <p className="text-[12px] text-ink/40 leading-snug">
+                      {job.sub}
+                    </p>
+                  )}
                   <p className="mt-0.5 text-[13px] text-ink/50 leading-snug italic">
                     {job.title}
                   </p>
