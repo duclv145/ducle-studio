@@ -58,84 +58,53 @@ const tools = [
     ),
   },
   {
-    name: "InDesign",
+    name: "After Effects",
     icon: (
       <svg viewBox="0 0 50 50" className="w-full h-full">
-        <rect width="50" height="50" rx="8" fill="#49021f"/>
+        <rect width="50" height="50" rx="8" fill="#0f0024"/>
         <text x="50%" y="58%" dominantBaseline="middle" textAnchor="middle"
-          fill="#FF3366" fontSize="16" fontFamily="Arial, sans-serif" fontWeight="bold">Id</text>
+          fill="#D291FF" fontSize="16" fontFamily="Arial, sans-serif" fontWeight="bold">Ae</text>
       </svg>
     ),
   },
   {
-    name: "Premiere Pro",
+    name: "Claude Code",
     icon: (
       <svg viewBox="0 0 50 50" className="w-full h-full">
-        <rect width="50" height="50" rx="8" fill="#00005b"/>
-        <text x="50%" y="58%" dominantBaseline="middle" textAnchor="middle"
-          fill="#9999FF" fontSize="16" fontFamily="Arial, sans-serif" fontWeight="bold">Pr</text>
-      </svg>
-    ),
-  },
-  {
-    name: "Figma",
-    icon: (
-      <svg viewBox="0 0 50 50" className="w-full h-full">
-        <rect width="50" height="50" rx="8" fill="#1e1e1e"/>
-        <g transform="translate(15,7)">
-          {/* Figma logo — simplified F shape with brand colors */}
-          <rect x="0" y="0" width="10" height="10" rx="5" fill="#F24E1E"/>
-          <rect x="10" y="0" width="10" height="10" rx="5" fill="#FF7262"/>
-          <rect x="0" y="10" width="10" height="10" rx="5" fill="#A259FF"/>
-          <rect x="0" y="20" width="10" height="10" rx="5" fill="#0ACF83"/>
-          <circle cx="15" cy="15" r="5" fill="#1ABCFE"/>
+        <rect width="50" height="50" rx="8" fill="#1a0f00"/>
+        {/* Anthropic / Claude mark — stylised diamond */}
+        <g transform="translate(25,25)">
+          <polygon points="0,-13 11,0 0,13 -11,0" fill="none" stroke="#D97706" strokeWidth="2.5" strokeLinejoin="round"/>
+          <polygon points="0,-7 6,0 0,7 -6,0" fill="#D97706"/>
         </g>
       </svg>
     ),
   },
   {
-    name: "Midjourney",
-    icon: (
-      <svg viewBox="0 0 50 50" className="w-full h-full">
-        <rect width="50" height="50" rx="8" fill="#000"/>
-        {/* Midjourney boat/sail icon simplified */}
-        <g transform="translate(7,8)" stroke="white" strokeWidth="1.8" fill="none" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M18 4 L6 28 L30 28 Z"/>
-          <path d="M18 4 L28 22"/>
-          <line x1="4" y1="32" x2="32" y2="32"/>
-        </g>
-      </svg>
-    ),
-  },
-  {
-    name: "Stable Diffusion",
-    icon: (
-      <svg viewBox="0 0 50 50" className="w-full h-full">
-        <rect width="50" height="50" rx="8" fill="#0f0f23"/>
-        <defs>
-          <linearGradient id="sd-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#6366f1"/>
-            <stop offset="100%" stopColor="#a855f7"/>
-          </linearGradient>
-        </defs>
-        {/* Diffusion waves */}
-        <g stroke="url(#sd-grad)" strokeWidth="2" fill="none" strokeLinecap="round">
-          <path d="M10 25 Q17.5 15 25 25 Q32.5 35 40 25"/>
-          <path d="M10 19 Q17.5 9 25 19 Q32.5 29 40 19"/>
-          <path d="M10 31 Q17.5 21 25 31 Q32.5 41 40 31"/>
-        </g>
-      </svg>
-    ),
-  },
-  {
-    name: "ChatGPT",
+    name: "Codex",
     icon: (
       <svg viewBox="0 0 50 50" className="w-full h-full">
         <rect width="50" height="50" rx="8" fill="#0d0d0d"/>
-        {/* OpenAI logo simplified */}
-        <g transform="translate(9,9)" fill="white">
-          <path d="M16 0C8.8 0 3 5.8 3 13c0 3.1 1.1 6 3 8.2L4 28l6.8-2C12.4 26.6 14.1 27 16 27c7.2 0 13-5.8 13-13S23.2 0 16 0zm0 2.5c5.8 0 10.5 4.7 10.5 10.5S21.8 23.5 16 23.5c-1.7 0-3.3-.4-4.7-1.2L10 22l-1.5.5.5-1.7-.4-.5C7 18.9 5.5 17 5.5 13 5.5 7.2 10.2 2.5 16 2.5z"/>
+        {/* Code brackets */}
+        <g fill="none" stroke="#10b981" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="18,17 10,25 18,33"/>
+          <polyline points="32,17 40,25 32,33"/>
+          <line x1="27" y1="14" x2="23" y2="36"/>
         </g>
+      </svg>
+    ),
+  },
+  {
+    name: "Nano Banana",
+    icon: (
+      <svg viewBox="0 0 50 50" className="w-full h-full">
+        <rect width="50" height="50" rx="8" fill="#1a1500"/>
+        {/* Banana shape */}
+        <g fill="none" stroke="#FACC15" strokeWidth="2.5" strokeLinecap="round">
+          <path d="M14 34 Q12 20 22 14 Q32 9 36 16 Q38 20 30 24 Q22 28 20 36"/>
+          <path d="M14 34 Q16 38 20 36"/>
+        </g>
+        <circle cx="36" cy="16" r="2" fill="#FACC15"/>
       </svg>
     ),
   },
@@ -244,7 +213,7 @@ export default function AboutCV() {
             <motion.p {...fadeUp(0.25)} className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted mt-10 mb-5">
               Tools
             </motion.p>
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-3 gap-4">
               {tools.map((tool, i) => (
                 <motion.div
                   key={tool.name}
