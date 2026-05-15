@@ -75,12 +75,12 @@ const education = [
     items: ["2013 – 2016 · Graphic Design", "2011 – 2013 · Website Design"],
   },
   {
-    school: "Brian Tracy International",
-    items: ["2016 · Total Business Mastery Mini MBA"],
-  },
-  {
     school: "FPT Arena",
     items: ["2013 · Design Thinking Workshop"],
+  },
+  {
+    school: "Brian Tracy International",
+    items: ["2016 · Total Business Mastery Mini MBA"],
   },
   {
     school: "Amazon Web Services",
