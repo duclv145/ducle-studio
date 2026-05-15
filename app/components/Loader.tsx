@@ -1,13 +1,14 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import logo from "../../public/logo.png";
 
 export default function Loader() {
   const [done, setDone] = useState(false);
   const [count, setCount] = useState(0);
+  const prevCount = useRef(-1);
 
   useEffect(() => {
     // counter from 0 → 100
@@ -18,7 +19,8 @@ export default function Loader() {
       const p = Math.min(1, (t - start) / total);
       // ease-out
       const eased = 1 - Math.pow(1 - p, 2);
-      setCount(Math.round(eased * 100));
+      const next = Math.round(eased * 100);
+      if (next !== prevCount.current) { prevCount.current = next; setCount(next); }
       if (p < 1) raf = requestAnimationFrame(tick);
       else setTimeout(() => setDone(true), 320);
     };

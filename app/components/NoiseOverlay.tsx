@@ -12,8 +12,7 @@ export function NoiseOverlay() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let rafId: number;
-    let frame = 0;
+    let timerId: ReturnType<typeof setInterval>;
 
     const resize = () => {
       canvas.width = window.innerWidth;
@@ -23,11 +22,6 @@ export function NoiseOverlay() {
     window.addEventListener("resize", resize);
 
     const draw = () => {
-      rafId = requestAnimationFrame(draw);
-      frame++;
-      // Refresh noise every 12 frames (~5fps) for very gentle movement
-      if (frame % 12 !== 0) return;
-
       const W = canvas.width;
       const H = canvas.height;
       const imageData = ctx.createImageData(W, H);
@@ -38,16 +32,18 @@ export function NoiseOverlay() {
         data[i]     = v;
         data[i + 1] = v;
         data[i + 2] = v;
-        data[i + 3] = 12; // opacity per pixel — very subtle
+        data[i + 3] = 12;
       }
 
       ctx.putImageData(imageData, 0, 0);
     };
 
+    // ~5fps — no need for 60fps RAF loop
     draw();
+    timerId = setInterval(draw, 200);
 
     return () => {
-      cancelAnimationFrame(rafId);
+      clearInterval(timerId);
       window.removeEventListener("resize", resize);
     };
   }, []);

@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 interface Project {
   n: string;
@@ -118,13 +119,22 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
             <div className="flex-1 overflow-y-auto" data-lenis-prevent>
               {images.length > 0 ? (
                 <div className="flex flex-col">
-                  {images.map((src) => (
+                  {images.map((src, idx) => (
                     <div
                       key={src}
                       className="w-full cursor-zoom-in"
                       onClick={() => setLightbox(src)}
                     >
-                      <img src={src} alt="" className="w-full h-auto block" />
+                      <Image
+                        src={src}
+                        alt=""
+                        width={1600}
+                        height={1200}
+                        className="w-full h-auto block"
+                        sizes="75vw"
+                        priority={idx === 0}
+                        loading={idx === 0 ? "eager" : "lazy"}
+                      />
                     </div>
                   ))}
                 </div>
@@ -153,7 +163,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 0.92, opacity: 0 }}
                   transition={{ duration: 0.3 }}
-                  src={lightbox}
+                  src={lightbox ?? ""}
                   alt=""
                   className="max-w-full max-h-full rounded-xl object-contain shadow-2xl"
                   onClick={(e) => e.stopPropagation()}

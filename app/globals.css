@@ -106,6 +106,8 @@ html.lenis body {
 
 .spin-slow {
   animation: spin 12s linear infinite;
+  will-change: transform;
+  contain: layout style paint;
 }
 
 @keyframes spin {

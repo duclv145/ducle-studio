@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useMotionValue, useSpring } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Cursor() {
   const x = useMotionValue(0);
@@ -10,6 +10,7 @@ export default function Cursor() {
     "default"
   );
   const [hidden, setHidden] = useState(true);
+  const hiddenRef = useRef(true);
   const [enabled, setEnabled] = useState(false);
 
   // springs for smooth follow
@@ -26,10 +27,10 @@ export default function Cursor() {
     const onMove = (e: MouseEvent) => {
       x.set(e.clientX);
       y.set(e.clientY);
-      if (hidden) setHidden(false);
+      if (hiddenRef.current) { hiddenRef.current = false; setHidden(false); }
     };
-    const onLeave = () => setHidden(true);
-    const onEnter = () => setHidden(false);
+    const onLeave = () => { hiddenRef.current = true; setHidden(true); };
+    const onEnter = () => { hiddenRef.current = false; setHidden(false); };
 
     window.addEventListener("mousemove", onMove);
     document.addEventListener("mouseleave", onLeave);
@@ -57,7 +58,7 @@ export default function Cursor() {
       document.removeEventListener("mouseenter", onEnter);
       document.removeEventListener("mouseover", onOver);
     };
-  }, [x, y, hidden]);
+  }, [x, y]); // hiddenRef avoids re-registering listeners on every hide/show
 
   if (!enabled) return null;
 

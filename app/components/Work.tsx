@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import SectionLabel from "./SectionLabel";
 import ProjectModal from "./ProjectModal";
 
@@ -134,10 +135,13 @@ export default function Work() {
             >
               {/* card image or abstract artwork */}
               {p.cardImage ? (
-                <img
+                <Image
                   src={p.cardImage}
                   alt={p.client}
-                  className="absolute inset-0 w-full h-full object-cover"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority={i === 0}
                 />
               ) : (
                 <ProjectArt index={i} accent={p.accent} txt={p.txt} />
