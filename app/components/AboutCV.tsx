@@ -174,13 +174,6 @@ export default function AboutCV() {
               ))}
             </div>
 
-            {/* Availability note */}
-            <motion.div {...fadeUp(0.45)} className="mt-8 flex items-center gap-3">
-              <span className="size-2 rounded-full bg-yellow animate-pulse shrink-0" />
-              <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-ink/40">
-                Open to new projects
-              </p>
-            </motion.div>
           </div>
 
         </div>
