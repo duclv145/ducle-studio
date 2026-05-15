@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Libre_Caslon_Display, Inter, JetBrains_Mono, Noto_Serif_Display } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "./components/SmoothScroll";
-import { NoiseOverlay } from "./components/NoiseOverlay";
 
 const display = Libre_Caslon_Display({
   variable: "--font-display",
@@ -106,7 +105,6 @@ export default function RootLayout({
       className={`${display.variable} ${serif.variable} ${sans.variable} ${mono.variable} antialiased`}
     >
       <body className="bg-bg text-ink min-h-svh selection:bg-yellow">
-        <NoiseOverlay />
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>

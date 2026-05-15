@@ -35,18 +35,9 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.2, ease: [0.65, 0, 0.35, 1] }}
           className="flex items-center gap-4 md:gap-5 mb-8 md:mb-12"
         >
-          <div className="shrink-0 w-[88px] md:w-[112px] relative -rotate-6">
-            {/* cast shadow on ground */}
-            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-[80%] h-5 rounded-full bg-ink/40 blur-xl" />
-            {/* transparent PNG — drop-shadow follows person silhouette */}
-            <div
-              className="relative w-full aspect-[3/4]"
-              style={{
-                filter:
-                  "drop-shadow(0 6px 12px rgba(0,0,0,0.55)) drop-shadow(0 20px 40px rgba(0,0,0,0.45)) drop-shadow(0 40px 64px rgba(0,0,0,0.28))",
-              }}
-            >
-              <Image src="/avatar.png" alt="Duc Le" fill className="object-cover" sizes="130px" priority />
+          <div className="shrink-0 w-[104px] md:w-[132px] relative -rotate-6">
+            <div className="relative w-full aspect-[3/4] overflow-hidden rounded-[10px]">
+              <Image src="/avatar.png" alt="Duc Le" fill className="object-cover" sizes="130px" priority unoptimized />
             </div>
           </div>
 
