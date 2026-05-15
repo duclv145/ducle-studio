@@ -34,7 +34,7 @@ export default function Contact() {
 
           {/* Top row: label + availability badge */}
           <div className="flex items-start justify-between">
-            <SectionLabel index="04" title="Contact" />
+            <SectionLabel index="03" title="Contact" />
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               whileInView={{ opacity: 1, y: 0 }}

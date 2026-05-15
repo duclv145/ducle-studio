@@ -130,7 +130,7 @@ export default function Work() {
     <section id="work" className="px-5 md:px-8 py-20 md:py-28">
       <div className="mx-auto max-w-[1480px]">
         <SectionLabel
-          index="03"
+          index="02"
           title="Selected work"
         />
 
